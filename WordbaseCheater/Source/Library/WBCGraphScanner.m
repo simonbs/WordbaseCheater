@@ -18,6 +18,7 @@
 @property (assign, nonatomic) NSInteger maxColumn;
 @property (strong, nonatomic) WBCDirectedGraph *graph;
 @property (assign, nonatomic, getter=isStopped) BOOL stopped;
+@property (strong, nonatomic) NSMutableArray *pathStack;
 @end
 
 @implementation WBCGraphScanner
@@ -132,19 +133,23 @@
 
 - (void)searchGraphAsOwner:(WBCTileOwner)owner {
 	self.stopped = NO;
+	self.pathStack = [NSMutableArray new];
 	
 	NSInteger nodesCount = [self.graph.nodes count];
 	if (owner == WBCTileOwnerOrange) {
 		for (NSInteger i = nodesCount - 1; i >= 0; i--) {
 			WBCGraphNode *node = self.graph.nodes[i];
-			[self attemptToSearchFromNode:node asOwner:owner];
+			[self.pathStack addObject:@[ node ]];
 		}
 	} else if (owner == WBCTileOwnerBlue) {
 		for (NSInteger i = 0; i < nodesCount; i++) {
 			WBCGraphNode *node = self.graph.nodes[i];
-			[self attemptToSearchFromNode:node asOwner:owner];
+			[self.pathStack addObject:@[ node ]];
 		}
 	}
+	
+	NSLog(@"%@", self.pathStack);
+	[self searchNextPath];
 }
 
 - (void)stop {
@@ -154,36 +159,35 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)attemptToSearchFromNode:(WBCGraphNode *)node asOwner:(WBCTileOwner)owner {
-	if (node.owner == owner && !self.isStopped) {
-		NSLog(@"Start on node with value: %@", node.value);
-		[self searchFromNode:node];
-	}
-}
-
-- (void)searchFromNode:(WBCGraphNode *)node {
-	[self searchFromNode:node currentPath:[NSMutableArray new]];
-}
-
-- (void)searchFromNode:(WBCGraphNode *)node currentPath:(NSMutableArray *)currentPath {
+- (void)searchNextPath {
 	if (self.isStopped) {
 		return;
 	}
 	
-	[currentPath addObject:node];
-	[self shouldContinueDownPath:currentPath handler:^(BOOL shouldContinue) {
-		NSLog(@"- %@", [self wordFromPath:currentPath]);
+	
+	NSArray *path = [self popPath];
+	[self shouldContinueDownPath:path handler:^(BOOL shouldContinue) {
 		if (shouldContinue) {
-			for (WBCGraphNode *neighbour in node.neighbors) {
-				if (![currentPath containsObject:neighbour]) {
-					NSMutableArray *newCurrentPath = [NSMutableArray arrayWithArray:currentPath];
-					[self searchFromNode:neighbour currentPath:newCurrentPath];
-				}
+			WBCGraphNode *lastNode = [path lastObject];
+			for (WBCGraphNode *neighbour in lastNode.neighbors) {
+				NSMutableArray *mutablePath = [NSMutableArray arrayWithArray:path];
+				[mutablePath addObject:neighbour];
+				[self.pathStack addObject:[NSArray arrayWithArray:mutablePath]];
 			}
-		} else {
-			NSLog(@" > Cancelled");
 		}
+		
+		[self searchNextPath];
 	}];
+}
+
+- (NSArray *)popPath {
+	if (self.pathStack && [self.pathStack count] > 0) {
+		NSArray *path = [self.pathStack lastObject];
+		[self.pathStack removeLastObject];
+		return path;
+	}
+	
+	return nil;
 }
 
 - (NSString *)wordFromPath:(NSArray *)path {
