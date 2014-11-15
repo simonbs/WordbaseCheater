@@ -176,6 +176,9 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 }
 
 - (NSUInteger)scoreForPath:(NSArray *)path {
+	NSUInteger minRow = [[self.board.tiles valueForKey:@"@min.indexPath.row"] integerValue];
+	NSUInteger maxRow = [[self.board.tiles valueForKey:@"@max.indexPath.row"] integerValue];
+	
 	NSInteger score = 0;
 	WBCGraphNode *firstNode = [path firstObject];
 	WBCTileOwner owner = [self selectedOwner];
@@ -204,6 +207,12 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 		// Add to score if it is a bomb tile
 		if (tile.isBombTile) {
 			score += 20;
+		}
+		
+		// Check if this node reaches opponents base
+		if ((owner == WBCTileOwnerOrange && node.indexPath.row == maxRow) ||
+			(owner == WBCTileOwnerBlue && node.indexPath.row == minRow)) {
+			score += 10000;
 		}
 	}
 	
