@@ -122,7 +122,7 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 	NSString *filename = [NSString stringWithFormat:@"words_%@", language];
 	NSString *wordsPath = [[NSBundle mainBundle] pathForResource:filename ofType:@"txt"];
 	NSString *wordsText = [NSString stringWithContentsOfFile:wordsPath encoding:NSUTF8StringEncoding error:nil];
-	self.knownWords = [wordsText componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+	self.knownWords = [[wordsText componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] sortedArrayUsingSelector:@selector(compare:)];
 }
 
 - (void)processScreenshot:(UIImage *)screenshot {
