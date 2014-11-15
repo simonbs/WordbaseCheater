@@ -176,8 +176,8 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 }
 
 - (NSUInteger)scoreForPath:(NSArray *)path {
-	NSUInteger minRow = [[self.board.tiles valueForKey:@"@min.indexPath.row"] integerValue];
-	NSUInteger maxRow = [[self.board.tiles valueForKey:@"@max.indexPath.row"] integerValue];
+	NSUInteger minRow = [[self.board.tiles valueForKeyPath:@"@min.indexPath.row"] integerValue];
+	NSUInteger maxRow = [[self.board.tiles valueForKeyPath:@"@max.indexPath.row"] integerValue];
 	
 	NSInteger score = 0;
 	WBCGraphNode *firstNode = [path firstObject];
