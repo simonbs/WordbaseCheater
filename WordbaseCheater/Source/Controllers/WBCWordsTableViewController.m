@@ -12,6 +12,7 @@
 #import "WBCBoard.h"
 #import "WBCGraphScanner.h"
 #import "WBCGraphNode.h"
+#import "WBCIndexPath.h"
 #import "WBCBoardViewController.h"
 #import "UIColor+WBCWordbase.h"
 
@@ -149,11 +150,13 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 
 - (void)addWord:(NSString *)word path:(NSArray *)path {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+		NSInteger score = [self scoreForPath:path];
+		
 		NSMutableArray *results = [NSMutableArray arrayWithArray:self.results];
-		NSDictionary *result = @{ @"word": word, @"path": path };
+		NSDictionary *result = @{ @"word": word, @"path": path, @"score": @(score) };
 		[results addObject:result];
 		
-		NSSortDescriptor *lengthSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"word.length" ascending:NO];
+		NSSortDescriptor *lengthSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
 		NSSortDescriptor *alphabeticalSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"word" ascending:YES];
 		[results sortUsingDescriptors:@[ lengthSortDescriptor, alphabeticalSortDescriptor ]];
 		
@@ -162,6 +165,41 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 			[self.tableView reloadData];
 		});
 	});
+}
+
+- (NSUInteger)scoreForPath:(NSArray *)path {
+	NSInteger score = 0;
+	WBCGraphNode *firstNode = [path firstObject];
+	WBCTileOwner owner = [self selectedOwner];
+	for (WBCGraphNode *node in path) {
+		NSUInteger index = [self.board.tiles indexOfObjectPassingTest:^BOOL(WBCTile *tile, NSUInteger idx, BOOL *stop) {
+			BOOL match = tile.indexPath.row == node.indexPath.row && tile.indexPath.column == node.indexPath.column;
+			*stop = match;
+			return match;
+		}];
+		
+		WBCTile *tile = self.board.tiles[index];
+		if (tile.owner == WBCTileOwnerUnknown) {
+			// Add to score if tile is unused
+			score += 2;
+		} else if (tile.owner != owner) {
+			// Add to score if this is the other players tile
+			score += 10;
+		}
+		
+		// Add to score if tile is in "the right direction"
+		if ((owner == WBCTileOwnerOrange && node.indexPath.row > firstNode.indexPath.row) ||
+			(owner == WBCTileOwnerBlue && node.indexPath.row < firstNode.indexPath.row)) {
+			score += 5;
+		}
+		
+		// Add to score if it is a bomb tile
+		if (tile.isBombTile) {
+			score += 20;
+		}
+	}
+	
+	return score;
 }
 
 - (BOOL)isKnownWord:(NSString *)word {
@@ -194,7 +232,7 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSDictionary *result = self.results[indexPath.row];
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:WBCWordsCellIdentifier];
-	cell.textLabel.text = result[@"word"];
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", result[@"score"], result[@"word"]];
 	return cell;
 }
 
