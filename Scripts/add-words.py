@@ -35,6 +35,5 @@ if __name__ == "__main__":
   known_words = get_known_words(args.brain)
   new_words = get_new_words(args.words)
   all_words = list(set(known_words) | set(new_words))
-  all_words.sort()
-  write_words(all_words, args.brain)
+  write_words(sorted(all_words), args.brain)
   print 'Already knew %s words. Aadded %s words and now knows %s words' % (len(known_words), len(all_words) - len(known_words), len(all_words))
