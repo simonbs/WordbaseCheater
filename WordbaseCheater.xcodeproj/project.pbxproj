@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72728C641A1514A80061EA3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C631A1514A80061EA3C /* main.m */; };
+		72728C6D1A1514A80061EA3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72728C6B1A1514A80061EA3C /* Main.storyboard */; };
+		72728C6F1A1514A80061EA3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72728C6E1A1514A80061EA3C /* Images.xcassets */; };
+		72728C721A1514A80061EA3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72728C701A1514A80061EA3C /* LaunchScreen.xib */; };
+		72728C901A1514F30061EA3C /* WBCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C8A1A1514F30061EA3C /* WBCAppDelegate.m */; };
+		72728C9C1A1515290061EA3C /* WBCBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C951A1515290061EA3C /* WBCBoard.m */; };
+		72728C9D1A1515290061EA3C /* WBCBoardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C971A1515290061EA3C /* WBCBoardCreator.m */; };
+		72728C9E1A1515290061EA3C /* WBCPreparationFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C991A1515290061EA3C /* WBCPreparationFilter.m */; };
+		72728C9F1A1515290061EA3C /* WBCTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C9B1A1515290061EA3C /* WBCTile.m */; };
+		72728CA21A1515500061EA3C /* WBCWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728CA11A1515500061EA3C /* WBCWordsViewController.m */; };
+		72728D4D1A1518570061EA3C /* WBCIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728D4C1A1518570061EA3C /* WBCIndexPath.m */; };
+		72728D541A1519BE0061EA3C /* UIColor+WBCWordbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728D511A1519BE0061EA3C /* UIColor+WBCWordbase.m */; };
+		72728D551A1519BE0061EA3C /* UIImage+WBCPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728D531A1519BE0061EA3C /* UIImage+WBCPicker.m */; };
+		72728D571A151A8D0061EA3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72728D561A151A8D0061EA3C /* CoreGraphics.framework */; };
+		72728D591A151A950061EA3C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72728D581A151A950061EA3C /* MobileCoreServices.framework */; };
+		72728D5B1A151BE30061EA3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72728D5A1A151BE30061EA3C /* UIKit.framework */; };
+		72728D5D1A151BEC0061EA3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72728D5C1A151BEC0061EA3C /* Foundation.framework */; };
+		72728D621A15285B0061EA3C /* GVUserDefaults+WBCSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728D611A15285B0061EA3C /* GVUserDefaults+WBCSettings.m */; };
+		72728D691A152E030061EA3C /* words_da.txt in Resources */ = {isa = PBXBuildFile; fileRef = 72728D671A152E030061EA3C /* words_da.txt */; };
+		72728D6A1A152E030061EA3C /* words_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 72728D681A152E030061EA3C /* words_en.txt */; };
+		72D357B31A15780F002344CB /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */; };
+		72D357B51A157840002344CB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B41A157840002344CB /* CoreImage.framework */; };
+		72D357B71A15787A002344CB /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 72D357B61A15787A002344CB /* tessdata */; };
+		E0F8D574DFAE7940AE8B6376 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61948D1569E0A30A6D1A5A4B /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		52E04B0C60FF5601C13B04E4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		58AED6FF44D31E1306D1E0BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		61948D1569E0A30A6D1A5A4B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		72728C5E1A1514A80061EA3C /* WordbaseCheater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordbaseCheater.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72728C621A1514A80061EA3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72728C631A1514A80061EA3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72728C6C1A1514A80061EA3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		72728C6E1A1514A80061EA3C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		72728C711A1514A80061EA3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		72728C891A1514F30061EA3C /* WBCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCAppDelegate.h; sourceTree = "<group>"; };
+		72728C8A1A1514F30061EA3C /* WBCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCAppDelegate.m; sourceTree = "<group>"; };
+		72728C941A1515290061EA3C /* WBCBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCBoard.h; sourceTree = "<group>"; };
+		72728C951A1515290061EA3C /* WBCBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCBoard.m; sourceTree = "<group>"; };
+		72728C961A1515290061EA3C /* WBCBoardCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCBoardCreator.h; sourceTree = "<group>"; };
+		72728C971A1515290061EA3C /* WBCBoardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCBoardCreator.m; sourceTree = "<group>"; };
+		72728C981A1515290061EA3C /* WBCPreparationFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCPreparationFilter.h; sourceTree = "<group>"; };
+		72728C991A1515290061EA3C /* WBCPreparationFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCPreparationFilter.m; sourceTree = "<group>"; };
+		72728C9A1A1515290061EA3C /* WBCTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCTile.h; sourceTree = "<group>"; };
+		72728C9B1A1515290061EA3C /* WBCTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCTile.m; sourceTree = "<group>"; };
+		72728CA01A1515500061EA3C /* WBCWordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCWordsViewController.h; sourceTree = "<group>"; };
+		72728CA11A1515500061EA3C /* WBCWordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCWordsViewController.m; sourceTree = "<group>"; };
+		72728D4B1A1518570061EA3C /* WBCIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCIndexPath.h; sourceTree = "<group>"; };
+		72728D4C1A1518570061EA3C /* WBCIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCIndexPath.m; sourceTree = "<group>"; };
+		72728D501A1519BE0061EA3C /* UIColor+WBCWordbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WBCWordbase.h"; sourceTree = "<group>"; };
+		72728D511A1519BE0061EA3C /* UIColor+WBCWordbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WBCWordbase.m"; sourceTree = "<group>"; };
+		72728D521A1519BE0061EA3C /* UIImage+WBCPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WBCPicker.h"; sourceTree = "<group>"; };
+		72728D531A1519BE0061EA3C /* UIImage+WBCPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBCPicker.m"; sourceTree = "<group>"; };
+		72728D561A151A8D0061EA3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		72728D581A151A950061EA3C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		72728D5A1A151BE30061EA3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		72728D5C1A151BEC0061EA3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		72728D5E1A151C260061EA3C /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		72728D601A15285B0061EA3C /* GVUserDefaults+WBCSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+WBCSettings.h"; sourceTree = "<group>"; };
+		72728D611A15285B0061EA3C /* GVUserDefaults+WBCSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+WBCSettings.m"; sourceTree = "<group>"; };
+		72728D671A152E030061EA3C /* words_da.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_da.txt; sourceTree = "<group>"; };
+		72728D681A152E030061EA3C /* words_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_en.txt; sourceTree = "<group>"; };
+		72728D6B1A1531470061EA3C /* WordbaseCheater-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WordbaseCheater-Prefix.pch"; path = "Source/WordbaseCheater-Prefix.pch"; sourceTree = "<group>"; };
+		72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		72D357B41A157840002344CB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		72D357B61A15787A002344CB /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72728C5B1A1514A80061EA3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D357B51A157840002344CB /* CoreImage.framework in Frameworks */,
+				72D357B31A15780F002344CB /* libstdc++.6.0.9.dylib in Frameworks */,
+				72728D5D1A151BEC0061EA3C /* Foundation.framework in Frameworks */,
+				72728D5B1A151BE30061EA3C /* UIKit.framework in Frameworks */,
+				72728D591A151A950061EA3C /* MobileCoreServices.framework in Frameworks */,
+				72728D571A151A8D0061EA3C /* CoreGraphics.framework in Frameworks */,
+				E0F8D574DFAE7940AE8B6376 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03F19E95C9147055A4C711D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72D357B41A157840002344CB /* CoreImage.framework */,
+				72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */,
+				72728D5E1A151C260061EA3C /* libc++.dylib */,
+				72728D5C1A151BEC0061EA3C /* Foundation.framework */,
+				72728D5A1A151BE30061EA3C /* UIKit.framework */,
+				72728D581A151A950061EA3C /* MobileCoreServices.framework */,
+				72728D561A151A8D0061EA3C /* CoreGraphics.framework */,
+				61948D1569E0A30A6D1A5A4B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72728C551A1514A80061EA3C = {
+			isa = PBXGroup;
+			children = (
+				72728C601A1514A80061EA3C /* WordbaseCheater */,
+				72728C5F1A1514A80061EA3C /* Products */,
+				86EB87AF899C0889A5FFF163 /* Pods */,
+				03F19E95C9147055A4C711D0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		72728C5F1A1514A80061EA3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72728C5E1A1514A80061EA3C /* WordbaseCheater.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72728C601A1514A80061EA3C /* WordbaseCheater */ = {
+			isa = PBXGroup;
+			children = (
+				72728C6E1A1514A80061EA3C /* Images.xcassets */,
+				72D357B61A15787A002344CB /* tessdata */,
+				72728D661A152E030061EA3C /* Resources */,
+				72728C921A1514FA0061EA3C /* User interface */,
+				72728C871A1514F30061EA3C /* Source */,
+				72728C611A1514A80061EA3C /* Supporting Files */,
+			);
+			path = WordbaseCheater;
+			sourceTree = "<group>";
+		};
+		72728C611A1514A80061EA3C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				72728C621A1514A80061EA3C /* Info.plist */,
+				72728C631A1514A80061EA3C /* main.m */,
+				72728D6B1A1531470061EA3C /* WordbaseCheater-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72728C871A1514F30061EA3C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				72728C881A1514F30061EA3C /* Application */,
+				72728C8B1A1514F30061EA3C /* Categories */,
+				72728C8C1A1514F30061EA3C /* Controllers */,
+				72728C8F1A1514F30061EA3C /* Views */,
+				72728C931A1515170061EA3C /* Library */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		72728C881A1514F30061EA3C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				72728C891A1514F30061EA3C /* WBCAppDelegate.h */,
+				72728C8A1A1514F30061EA3C /* WBCAppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		72728C8B1A1514F30061EA3C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				72728D601A15285B0061EA3C /* GVUserDefaults+WBCSettings.h */,
+				72728D611A15285B0061EA3C /* GVUserDefaults+WBCSettings.m */,
+				72728D501A1519BE0061EA3C /* UIColor+WBCWordbase.h */,
+				72728D511A1519BE0061EA3C /* UIColor+WBCWordbase.m */,
+				72728D521A1519BE0061EA3C /* UIImage+WBCPicker.h */,
+				72728D531A1519BE0061EA3C /* UIImage+WBCPicker.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		72728C8C1A1514F30061EA3C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				72728CA01A1515500061EA3C /* WBCWordsViewController.h */,
+				72728CA11A1515500061EA3C /* WBCWordsViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		72728C8F1A1514F30061EA3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		72728C921A1514FA0061EA3C /* User interface */ = {
+			isa = PBXGroup;
+			children = (
+				72728C701A1514A80061EA3C /* LaunchScreen.xib */,
+				72728C6B1A1514A80061EA3C /* Main.storyboard */,
+			);
+			name = "User interface";
+			sourceTree = "<group>";
+		};
+		72728C931A1515170061EA3C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				72728C941A1515290061EA3C /* WBCBoard.h */,
+				72728C951A1515290061EA3C /* WBCBoard.m */,
+				72728C961A1515290061EA3C /* WBCBoardCreator.h */,
+				72728C971A1515290061EA3C /* WBCBoardCreator.m */,
+				72728D4B1A1518570061EA3C /* WBCIndexPath.h */,
+				72728D4C1A1518570061EA3C /* WBCIndexPath.m */,
+				72728C981A1515290061EA3C /* WBCPreparationFilter.h */,
+				72728C991A1515290061EA3C /* WBCPreparationFilter.m */,
+				72728C9A1A1515290061EA3C /* WBCTile.h */,
+				72728C9B1A1515290061EA3C /* WBCTile.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		72728D661A152E030061EA3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72728D671A152E030061EA3C /* words_da.txt */,
+				72728D681A152E030061EA3C /* words_en.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		86EB87AF899C0889A5FFF163 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58AED6FF44D31E1306D1E0BB /* Pods.debug.xcconfig */,
+				52E04B0C60FF5601C13B04E4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72728C5D1A1514A80061EA3C /* WordbaseCheater */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72728C811A1514A80061EA3C /* Build configuration list for PBXNativeTarget "WordbaseCheater" */;
+			buildPhases = (
+				CAEF285CA55F7A09C51076F7 /* Check Pods Manifest.lock */,
+				72728C5A1A1514A80061EA3C /* Sources */,
+				72728C5B1A1514A80061EA3C /* Frameworks */,
+				72728C5C1A1514A80061EA3C /* Resources */,
+				D511156D240219238EB39069 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WordbaseCheater;
+			productName = WordbaseCheater;
+			productReference = 72728C5E1A1514A80061EA3C /* WordbaseCheater.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72728C561A1514A80061EA3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WBC;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = SimonBS;
+				TargetAttributes = {
+					72728C5D1A1514A80061EA3C = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 72728C591A1514A80061EA3C /* Build configuration list for PBXProject "WordbaseCheater" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 72728C551A1514A80061EA3C;
+			productRefGroup = 72728C5F1A1514A80061EA3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72728C5D1A1514A80061EA3C /* WordbaseCheater */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72728C5C1A1514A80061EA3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72728D6A1A152E030061EA3C /* words_en.txt in Resources */,
+				72728C6D1A1514A80061EA3C /* Main.storyboard in Resources */,
+				72728C721A1514A80061EA3C /* LaunchScreen.xib in Resources */,
+				72728C6F1A1514A80061EA3C /* Images.xcassets in Resources */,
+				72728D691A152E030061EA3C /* words_da.txt in Resources */,
+				72D357B71A15787A002344CB /* tessdata in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CAEF285CA55F7A09C51076F7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D511156D240219238EB39069 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72728C5A1A1514A80061EA3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72728C9C1A1515290061EA3C /* WBCBoard.m in Sources */,
+				72728C9F1A1515290061EA3C /* WBCTile.m in Sources */,
+				72728D551A1519BE0061EA3C /* UIImage+WBCPicker.m in Sources */,
+				72728CA21A1515500061EA3C /* WBCWordsViewController.m in Sources */,
+				72728D621A15285B0061EA3C /* GVUserDefaults+WBCSettings.m in Sources */,
+				72728D541A1519BE0061EA3C /* UIColor+WBCWordbase.m in Sources */,
+				72728D4D1A1518570061EA3C /* WBCIndexPath.m in Sources */,
+				72728C9E1A1515290061EA3C /* WBCPreparationFilter.m in Sources */,
+				72728C901A1514F30061EA3C /* WBCAppDelegate.m in Sources */,
+				72728C641A1514A80061EA3C /* main.m in Sources */,
+				72728C9D1A1515290061EA3C /* WBCBoardCreator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		72728C6B1A1514A80061EA3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72728C6C1A1514A80061EA3C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		72728C701A1514A80061EA3C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72728C711A1514A80061EA3C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		72728C7F1A1514A80061EA3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		72728C801A1514A80061EA3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72728C821A1514A80061EA3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58AED6FF44D31E1306D1E0BB /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$SRCROOT/WordbaseCheater/Source/WordbaseCheater-Prefix.pch";
+				INFOPLIST_FILE = WordbaseCheater/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/WordbaseCheater/Source/Other sources/tesseract-ios-lib/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"Pods-GPUImage\"",
+					"-l\"Pods-GVUserDefaults\"",
+					"-l\"Pods-TesseractOCRiOS\"",
+					"-l\"stdc++\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TesseractOCR\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lstdc++",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		72728C831A1514A80061EA3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E04B0C60FF5601C13B04E4 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$SRCROOT/WordbaseCheater/Source/WordbaseCheater-Prefix.pch";
+				INFOPLIST_FILE = WordbaseCheater/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/WordbaseCheater/Source/Other sources/tesseract-ios-lib/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"Pods-GPUImage\"",
+					"-l\"Pods-GVUserDefaults\"",
+					"-l\"Pods-TesseractOCRiOS\"",
+					"-l\"stdc++\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TesseractOCR\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lstdc++",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72728C591A1514A80061EA3C /* Build configuration list for PBXProject "WordbaseCheater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72728C7F1A1514A80061EA3C /* Debug */,
+				72728C801A1514A80061EA3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72728C811A1514A80061EA3C /* Build configuration list for PBXNativeTarget "WordbaseCheater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72728C821A1514A80061EA3C /* Debug */,
+				72728C831A1514A80061EA3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72728C561A1514A80061EA3C /* Project object */;
+}
