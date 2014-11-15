@@ -70,6 +70,12 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 	self.navigationItem.rightBarButtonItem = self.photosBarButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+}
+
 #pragma mark -
 #pragma mark Private Methods
 
