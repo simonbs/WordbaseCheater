@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Settings" id="l4N-3g-xpS">
+                            <tableViewSection headerTitle="Languages" id="l4N-3g-xpS">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="QD6-9s-Jrd" style="IBUITableViewCellStyleDefault" id="acC-sf-5WV">
                                         <autoresizingMask key="autoresizingMask"/>
