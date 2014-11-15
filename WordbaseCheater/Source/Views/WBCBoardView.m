@@ -67,26 +67,28 @@
 			fillColor = [UIColor whiteColor];
 		}
 		
-		NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-		paragraphStyle.alignment = NSTextAlignmentCenter;
-		
-		NSDictionary *titleAttributes = @{ NSForegroundColorAttributeName : textColor,
-										   NSFontAttributeName : [UIFont fontWithName:@"Gotham Bold" size:24.0f],
-										   NSParagraphStyleAttributeName : paragraphStyle };
-		
-		CGSize titleSize = [tile.value sizeWithAttributes:titleAttributes];
-		CGRect titleRect = CGRectZero;
-		titleRect.size.width = CGRectGetWidth(tileRect);
-		titleRect.size.height = titleSize.height;
-		titleRect.origin.x = CGRectGetMinX(tileRect);
-		titleRect.origin.y = CGRectGetMinY(tileRect) + (CGRectGetHeight(tileRect) - titleSize.height) * 0.50f;
-		
 		CGContextSetFillColorWithColor(context, fillColor.CGColor);
 		CGContextFillRect(context, tileRect);
 		
-		[tile.value drawInRect:titleRect withAttributes:titleAttributes];
-		
-		if (badgeText) {
+		if (self.drawLetters) {
+			NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+			paragraphStyle.alignment = NSTextAlignmentCenter;
+			
+			NSDictionary *titleAttributes = @{ NSForegroundColorAttributeName : textColor,
+											   NSFontAttributeName : [UIFont fontWithName:@"Gotham Bold" size:24.0f],
+											   NSParagraphStyleAttributeName : paragraphStyle };
+			
+			CGSize titleSize = [tile.value sizeWithAttributes:titleAttributes];
+			CGRect titleRect = CGRectZero;
+			titleRect.size.width = CGRectGetWidth(tileRect);
+			titleRect.size.height = titleSize.height;
+			titleRect.origin.x = CGRectGetMinX(tileRect);
+			titleRect.origin.y = CGRectGetMinY(tileRect) + (CGRectGetHeight(tileRect) - titleSize.height) * 0.50f;
+			
+			[tile.value drawInRect:titleRect withAttributes:titleAttributes];
+		}
+
+		if (self.drawBadges && badgeText) {
 			NSDictionary *badgeAttributes = @{ NSForegroundColorAttributeName : textColor,
 											   NSFontAttributeName : [UIFont fontWithName:@"Gotham Bold" size:10.0f] };
 			

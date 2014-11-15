@@ -14,5 +14,7 @@
 
 @property (strong, nonatomic) WBCBoard *board;
 @property (strong, nonatomic) NSArray *selectedPath;
+@property (assign, nonatomic) BOOL drawLetters;
+@property (assign, nonatomic) BOOL drawBadges;
 
 @end

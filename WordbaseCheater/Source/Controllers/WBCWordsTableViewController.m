@@ -15,6 +15,8 @@
 #import "WBCIndexPath.h"
 #import "WBCBoardViewController.h"
 #import "UIColor+WBCWordbase.h"
+#import "WBCBoardView.h"
+#import "WBCWordTableViewCell.h"
 
 static NSString* const WBCWordsCellIdentifier = @"Word";
 static NSString* const WBCWordsBoardSegue = @"Board";
@@ -231,8 +233,13 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSDictionary *result = self.results[indexPath.row];
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:WBCWordsCellIdentifier];
-	cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", result[@"score"], result[@"word"]];
+	WBCWordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:WBCWordsCellIdentifier];
+	cell.wordLabel.text = result[@"word"];
+	
+	cell.boardView.board = self.board;
+	cell.boardView.selectedPath = result[@"path"];
+	[cell.boardView setNeedsDisplay];
+	
 	return cell;
 }
 

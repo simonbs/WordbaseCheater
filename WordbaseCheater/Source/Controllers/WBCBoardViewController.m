@@ -24,6 +24,8 @@
 	
 	self.title = [self wordFromPath:self.selectedPath];
 	
+	self.boardView.drawLetters = YES;
+	self.boardView.drawBadges = YES;
 	self.boardView.board = self.board;
 	self.boardView.selectedPath = self.selectedPath;
 }
