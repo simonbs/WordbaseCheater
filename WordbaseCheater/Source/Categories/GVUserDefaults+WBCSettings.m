@@ -16,7 +16,7 @@
 #pragma mark Lifecycle
 
 - (NSDictionary *)setupDefaults {
-	return @{ @"language" : @"da",
+	return @{ @"language" : WBCLanguageEnglish,
 			  @"owner" : @(WBCTileOwnerOrange) };
 }
 
