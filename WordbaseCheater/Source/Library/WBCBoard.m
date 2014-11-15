@@ -10,11 +10,6 @@
 #import "WBCTile.h"
 #import "WBCIndexPath.h"
 
-#define XCODE_COLORS "XcodeColors"
-#define XCODE_COLORS_ESCAPE @"\033["
-#define XCODE_COLORS_RESET XCODE_COLORS_ESCAPE @";"
-#define XCODE_COLORS_COLOR(r, g, b) [NSString stringWithFormat:@"%@fg%i,%i,%i;", XCODE_COLORS_ESCAPE, r, g, b]
-
 #define WBCTileValueUnknownRepresentation @"-"
 
 @implementation WBCBoard
@@ -69,13 +64,13 @@
         NSString *value = ([tile.value length] > 0) ? tile.value : WBCTileValueUnknownRepresentation;
         
         if (tile.owner == WBCTileOwnerOrange) {
-            [str appendString:[self orangeLog:value]];
+            [str appendString:WBCColoredString(254, 136, 9, value)];
         } else if (tile.owner == WBCTileOwnerBlue) {
-            [str appendString:[self blueLog:value]];
+            [str appendString:WBCColoredString(0, 198, 231, value)];
         } else if (tile.isBombTile) {
-            [str appendString:[self bombLog:value]];
+            [str appendString:WBCColoredString(60, 231, 0, value)];
         } else {
-            [str appendString:[self regularLog:value]];
+            [str appendString:WBCColoredString(255, 255, 255, value)];
         }
         
         if (indexPath.row == currentRow) {
@@ -84,30 +79,6 @@
     }
     
     return str;
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (NSString *)orangeLog:(NSString *)str {
-    return [self isXcodeColorsEnabled] ? [NSString stringWithFormat:@"%@%@%@", XCODE_COLORS_COLOR(254, 136, 9), str, XCODE_COLORS_RESET] : str;
-}
-
-- (NSString *)blueLog:(NSString *)str {
-    return [self isXcodeColorsEnabled] ? [NSString stringWithFormat:@"%@%@%@", XCODE_COLORS_COLOR(0, 198, 231), str, XCODE_COLORS_RESET] : str;
-}
-
-- (NSString *)bombLog:(NSString *)str {
-    return [self isXcodeColorsEnabled] ? [NSString stringWithFormat:@"%@%@%@", XCODE_COLORS_COLOR(60, 231, 0), str, XCODE_COLORS_RESET] : str;
-}
-
-- (NSString *)regularLog:(NSString *)str {
-	return [self isXcodeColorsEnabled] ? [NSString stringWithFormat:@"%@%@%@", XCODE_COLORS_COLOR(255, 255, 255), str, XCODE_COLORS_RESET] : str;
-}
-
-- (BOOL)isXcodeColorsEnabled {
-    char *xcode_colors = getenv(XCODE_COLORS);
-    return xcode_colors && (strcmp(xcode_colors, "YES") == 0);
 }
 
 @end

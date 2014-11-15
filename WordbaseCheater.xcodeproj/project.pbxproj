@@ -27,6 +27,9 @@
 		72728D621A15285B0061EA3C /* GVUserDefaults+WBCSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728D611A15285B0061EA3C /* GVUserDefaults+WBCSettings.m */; };
 		72728D691A152E030061EA3C /* words_da.txt in Resources */ = {isa = PBXBuildFile; fileRef = 72728D671A152E030061EA3C /* words_da.txt */; };
 		72728D6A1A152E030061EA3C /* words_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 72728D681A152E030061EA3C /* words_en.txt */; };
+		72C385071A1783E900AEEDAA /* WBCGraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C385061A1783E900AEEDAA /* WBCGraphNode.m */; };
+		72C3850A1A17855300AEEDAA /* WBCDirectedGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C385091A17855300AEEDAA /* WBCDirectedGraph.m */; };
+		72C3850D1A17863D00AEEDAA /* WBCGraphScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C3850C1A17863D00AEEDAA /* WBCGraphScanner.m */; };
 		72D357B31A15780F002344CB /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */; };
 		72D357B51A157840002344CB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B41A157840002344CB /* CoreImage.framework */; };
 		72D357B71A15787A002344CB /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 72D357B61A15787A002344CB /* tessdata */; };
@@ -71,6 +74,12 @@
 		72728D671A152E030061EA3C /* words_da.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_da.txt; sourceTree = "<group>"; };
 		72728D681A152E030061EA3C /* words_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_en.txt; sourceTree = "<group>"; };
 		72728D6B1A1531470061EA3C /* WordbaseCheater-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WordbaseCheater-Prefix.pch"; path = "Source/WordbaseCheater-Prefix.pch"; sourceTree = "<group>"; };
+		72C385051A1783E900AEEDAA /* WBCGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCGraphNode.h; sourceTree = "<group>"; };
+		72C385061A1783E900AEEDAA /* WBCGraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCGraphNode.m; sourceTree = "<group>"; };
+		72C385081A17855300AEEDAA /* WBCDirectedGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCDirectedGraph.h; sourceTree = "<group>"; };
+		72C385091A17855300AEEDAA /* WBCDirectedGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCDirectedGraph.m; sourceTree = "<group>"; wrapsLines = 0; };
+		72C3850B1A17863D00AEEDAA /* WBCGraphScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCGraphScanner.h; sourceTree = "<group>"; };
+		72C3850C1A17863D00AEEDAA /* WBCGraphScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCGraphScanner.m; sourceTree = "<group>"; };
 		72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		72D357B41A157840002344CB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		72D357B61A15787A002344CB /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
@@ -222,6 +231,12 @@
 				72728C991A1515290061EA3C /* WBCPreparationFilter.m */,
 				72728C9A1A1515290061EA3C /* WBCTile.h */,
 				72728C9B1A1515290061EA3C /* WBCTile.m */,
+				72C385051A1783E900AEEDAA /* WBCGraphNode.h */,
+				72C385061A1783E900AEEDAA /* WBCGraphNode.m */,
+				72C385081A17855300AEEDAA /* WBCDirectedGraph.h */,
+				72C385091A17855300AEEDAA /* WBCDirectedGraph.m */,
+				72C3850B1A17863D00AEEDAA /* WBCGraphScanner.h */,
+				72C3850C1A17863D00AEEDAA /* WBCGraphScanner.m */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -354,15 +369,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				72728C9C1A1515290061EA3C /* WBCBoard.m in Sources */,
+				72C385071A1783E900AEEDAA /* WBCGraphNode.m in Sources */,
 				72728C9F1A1515290061EA3C /* WBCTile.m in Sources */,
 				72728D551A1519BE0061EA3C /* UIImage+WBCPicker.m in Sources */,
 				72728CA21A1515500061EA3C /* WBCWordsViewController.m in Sources */,
 				72728D621A15285B0061EA3C /* GVUserDefaults+WBCSettings.m in Sources */,
 				72728D541A1519BE0061EA3C /* UIColor+WBCWordbase.m in Sources */,
 				72728D4D1A1518570061EA3C /* WBCIndexPath.m in Sources */,
+				72C3850A1A17855300AEEDAA /* WBCDirectedGraph.m in Sources */,
 				72728C9E1A1515290061EA3C /* WBCPreparationFilter.m in Sources */,
 				72728C901A1514F30061EA3C /* WBCAppDelegate.m in Sources */,
 				72728C641A1514A80061EA3C /* main.m in Sources */,
+				72C3850D1A17863D00AEEDAA /* WBCGraphScanner.m in Sources */,
 				72728C9D1A1515290061EA3C /* WBCBoardCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

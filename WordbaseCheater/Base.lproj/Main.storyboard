@@ -49,6 +49,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ownerSegmentedControl" destination="wfU-lX-8DG" id="YQn-9z-aik"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubB-eB-lAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
