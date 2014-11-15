@@ -36,6 +36,8 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 @property (strong, nonatomic) WBCGraphScanner *graphScanner;
 @property (strong, nonatomic) NSMutableArray *results;
 @property (strong, nonatomic) UIImage *selectedScreenshot;
+
+@property (assign, nonatomic, getter=isStopped) BOOL stopped;
 @end
 
 @implementation WBCWordsTableViewController
@@ -104,6 +106,8 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 }
 
 - (void)stopGraphScanner {
+	self.stopped = YES;
+	
 	if (self.graphScanner) {
 		if (self.graphScanner.isSearching) {
 			[self.graphScanner stop];
@@ -163,8 +167,10 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 		[results sortUsingDescriptors:@[ lengthSortDescriptor, alphabeticalSortDescriptor ]];
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
-			self.results = results;
-			[self.tableView reloadData];
+			if (!self.isStopped) {
+				self.results = results;
+				[self.tableView reloadData];
+			}
 		});
 	});
 }
@@ -278,6 +284,7 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 	self.results = [NSMutableArray new];
 	[self.tableView reloadData];
 	
+	self.stopped = NO;
 	[self.graphScanner searchGraphAsOwner:[self selectedOwner]];
 	
 	[self.navigationItem setRightBarButtonItem:self.cancelBarButtonItem animated:YES];

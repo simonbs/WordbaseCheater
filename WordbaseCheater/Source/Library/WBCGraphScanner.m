@@ -204,10 +204,16 @@
 	// Sort the stack to work on the path that leads in the "right direction",
 	// e.g. if the owner is orange we are generally interested in hitting rows at the bottom (rows with high index number),
 	// and if the owner is blue we are generally interested in hitting rows at the top (rows with low index number),
-	NSString *sortPath = [NSString stringWithFormat:@"%@.indexPath.row", (self.owner == WBCTileOwnerOrange) ? @"@max" : @"@min"];
-	NSArray *sortedStack = [self.pathStack sortedArrayUsingComparator:^NSComparisonResult(NSArray *path1, NSArray *path2) {
-		return [path1 valueForKeyPath:sortPath] < [path2 valueForKeyPath:sortPath];
-	}];
+//	NSString *sortPath = [NSString stringWithFormat:@"%@.indexPath.row", (self.owner == WBCTileOwnerOrange) ? @"@max" : @"@min"];
+//	NSArray *sortedStack = [self.pathStack sortedArrayUsingComparator:^NSComparisonResult(NSArray *path1, NSArray *path2) {
+//		if (self.owner == WBCTileOwnerOrange) {
+//			return [path1 valueForKeyPath:sortPath] > [path2 valueForKeyPath:sortPath];
+//		}
+//		
+//		return [path1 valueForKeyPath:sortPath] < [path2 valueForKeyPath:sortPath];
+//	}];
+	
+	NSArray *sortedStack = self.pathStack;
 	
 	if (sortedStack && [sortedStack count] > 0) {
 		NSArray *path = [sortedStack lastObject];
