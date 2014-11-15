@@ -17,6 +17,8 @@
 #pragma mark Lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	self.window.tintColor = [UIColor darkGrayColor];
+	
 	return YES;
 }
 

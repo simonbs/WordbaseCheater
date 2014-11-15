@@ -15,6 +15,8 @@
 @interface WBCGraphScanner : NSObject
 
 @property (weak, nonatomic) id<WBCGraphScannerDelegate>delegate;
+@property (readonly, nonatomic) WBCBoard *board;
+@property (readonly, nonatomic, getter=isSearching) BOOL searching;
 
 - (instancetype)initWithBoard:(WBCBoard *)board;
 + (instancetype)scannerWithBoard:(WBCBoard *)board;
@@ -29,4 +31,5 @@
 - (void)graphScanner:(WBCGraphScanner *)scanner shouldContinueDownPath:(NSArray *)path handler:(void(^)(BOOL shouldContinue))handler;
 @optional
 - (void)graphScannerDidCreateGraph:(WBCGraphScanner *)scanner;
+- (void)graphScannerDidCompleteScan:(WBCGraphScanner *)scanner;
 @end

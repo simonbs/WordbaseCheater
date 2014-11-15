@@ -10,13 +10,14 @@
 
 @implementation GVUserDefaults (WBCSettings)
 
-@dynamic language;
+@dynamic language, owner;
 
 #pragma mark -
 #pragma mark Lifecycle
 
 - (NSDictionary *)setupDefaults {
-	return @{ @"language" : @"da" };
+	return @{ @"language" : @"da",
+			  @"owner" : @(WBCTileOwnerOrange) };
 }
 
 @end

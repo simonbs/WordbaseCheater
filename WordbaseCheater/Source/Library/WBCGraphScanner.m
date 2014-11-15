@@ -39,8 +39,6 @@
 }
 
 - (void)dealloc {
-	NSLog(@"Dealloc graph scanner");
-	
 	_board = nil;
 	_graph = nil;
 }
@@ -132,28 +130,35 @@
 }
 
 - (void)searchGraphAsOwner:(WBCTileOwner)owner {
+	_searching = YES;
 	self.stopped = NO;
 	self.pathStack = [NSMutableArray new];
 	
-	NSInteger nodesCount = [self.graph.nodes count];
-	if (owner == WBCTileOwnerOrange) {
-		for (NSInteger i = nodesCount - 1; i >= 0; i--) {
-			WBCGraphNode *node = self.graph.nodes[i];
-			[self.pathStack addObject:@[ node ]];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+		NSInteger nodesCount = [self.graph.nodes count];
+		if (owner == WBCTileOwnerOrange) {
+			for (NSInteger i = 0; i < nodesCount; i++) {
+				WBCGraphNode *node = self.graph.nodes[i];
+				if (node.owner == WBCTileOwnerOrange) {
+					[self.pathStack addObject:@[ node ]];
+				}
+			}
+		} else if (owner == WBCTileOwnerBlue) {
+			for (NSInteger i = nodesCount - 1; i >= 0; i--) {
+				WBCGraphNode *node = self.graph.nodes[i];
+				if (node.owner == WBCTileOwnerBlue) {
+					[self.pathStack addObject:@[ node ]];
+				}
+			}
 		}
-	} else if (owner == WBCTileOwnerBlue) {
-		for (NSInteger i = 0; i < nodesCount; i++) {
-			WBCGraphNode *node = self.graph.nodes[i];
-			[self.pathStack addObject:@[ node ]];
-		}
-	}
-	
-	NSLog(@"%@", self.pathStack);
-	[self searchNextPath];
+		
+		[self searchNextPath];
+	});
 }
 
 - (void)stop {
 	self.stopped = YES;
+	_searching = NO;
 }
 
 #pragma mark -
@@ -164,20 +169,33 @@
 		return;
 	}
 	
-	
 	NSArray *path = [self popPath];
-	[self shouldContinueDownPath:path handler:^(BOOL shouldContinue) {
-		if (shouldContinue) {
-			WBCGraphNode *lastNode = [path lastObject];
-			for (WBCGraphNode *neighbour in lastNode.neighbors) {
-				NSMutableArray *mutablePath = [NSMutableArray arrayWithArray:path];
-				[mutablePath addObject:neighbour];
-				[self.pathStack addObject:[NSArray arrayWithArray:mutablePath]];
+	if (!path) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			if ([self.delegate respondsToSelector:@selector(graphScannerDidCompleteScan:)]) {
+				[self.delegate graphScannerDidCompleteScan:self];
 			}
-		}
-		
-		[self searchNextPath];
-	}];
+		});
+	} else {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self shouldContinueDownPath:path handler:^(BOOL shouldContinue) {
+				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+					if (shouldContinue) {
+						WBCGraphNode *lastNode = [path lastObject];
+						for (WBCGraphNode *neighbour in lastNode.neighbors) {
+							if (![path containsObject:neighbour]) {
+								NSMutableArray *mutablePath = [NSMutableArray arrayWithArray:path];
+								[mutablePath addObject:neighbour];
+								[self.pathStack addObject:[NSArray arrayWithArray:mutablePath]];
+							}
+						}
+					}
+					
+					[self searchNextPath];
+				});
+			}];
+		});
+	}
 }
 
 - (NSArray *)popPath {
@@ -188,15 +206,6 @@
 	}
 	
 	return nil;
-}
-
-- (NSString *)wordFromPath:(NSArray *)path {
-	NSMutableString *word = [NSMutableString new];
-	for (WBCGraphNode *node in path) {
-		[word appendString:node.value];
-	}
-	
-	return word;
 }
 
 - (WBCGraphNode *)searchNodes:(NSArray *)nodes forNodeAtIndexPath:(WBCIndexPath *)indexPath {
