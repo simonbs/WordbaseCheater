@@ -26,7 +26,6 @@ static NSString* const WBCMainWordsSegue = @"Words";
 @property (assign, nonatomic) CGFloat defaultContinueTopMargin;
 @property (assign, nonatomic) CGFloat defaultContinueHeight;
 
-@property (assign, nonatomic) WBCTileOwner selectedOwner;
 @property (strong, nonatomic) UIImage *selectedScreenshot;
 @end
 
@@ -210,8 +209,8 @@ static NSString* const WBCMainWordsSegue = @"Words";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([segue.identifier isEqualToString:WBCMainWordsSegue]) {
 		WBCWordsTableViewController *wordsTableController = segue.destinationViewController;
-		wordsTableController.owner = self.selectedOwner;
 		wordsTableController.screenshot = self.selectedScreenshot;
+		wordsTableController.owner = [GVUserDefaults standardUserDefaults].owner;
 		wordsTableController.language = [[GVUserDefaults standardUserDefaults] primitiveLanguage];
 		self.selectedScreenshot = nil;
 	}
