@@ -28,14 +28,29 @@
 	return nil;
 }
 
++ (NSString *)displayNameForLanguage:(WBCLanguage)language {
+	switch (language) {
+		case WBCLanguageEnglish:
+			return @"English";
+		case WBCLanguageDanish:
+			return @"Danish";
+		case WBCLanguageFinnish:
+			return @"Finnish";
+		default:
+			break;
+	}
+	
+	return nil;
+}
+
 + (NSString *)traineddataForLanguage:(WBCLanguage)language {
 	switch (language) {
 		case WBCLanguageEnglish:
-			return @"enwordbase";
+			return @"eng";
 		case WBCLanguageDanish:
-			return @"dawordbase";
+			return @"dan";
 		case WBCLanguageFinnish:
-			return @"fiwordbase";
+			return @"fin";
 		default:
 			break;
 	}
@@ -53,6 +68,29 @@
 			return @"ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ";
 		default:
 			break;
+	}
+	
+	return nil;
+}
+
++ (UIImage *)flagForLanguage:(WBCLanguage)language {
+	NSString *imageName = nil;
+	switch (language) {
+		case WBCLanguageEnglish:
+			imageName = @"united-kingdom";
+			break;
+		case WBCLanguageDanish:
+			imageName = @"denmark";
+			break;
+		case WBCLanguageFinnish:
+			imageName = @"finland";
+			break;
+		default:
+			break;
+	}
+	
+	if (imageName) {
+		return [UIImage imageNamed:imageName];
 	}
 	
 	return nil;

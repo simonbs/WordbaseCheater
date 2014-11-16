@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		723FF9D51A18BBE5008B3AC1 /* WBCLanguages.m in Sources */ = {isa = PBXBuildFile; fileRef = 723FF9D41A18BBE5008B3AC1 /* WBCLanguages.m */; };
 		723FF9D71A18C013008B3AC1 /* words_fi.txt in Resources */ = {isa = PBXBuildFile; fileRef = 723FF9D61A18C013008B3AC1 /* words_fi.txt */; };
+		723FF9DD1A193B09008B3AC1 /* WBCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723FF9DC1A193B09008B3AC1 /* WBCMainViewController.m */; };
 		725143331A180F9A00788602 /* WBCWordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 725143321A180F9A00788602 /* WBCWordTableViewCell.m */; };
 		72728C641A1514A80061EA3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C631A1514A80061EA3C /* main.m */; };
 		72728C6D1A1514A80061EA3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72728C6B1A1514A80061EA3C /* Main.storyboard */; };
@@ -35,7 +36,7 @@
 		72C385101A17B6E000AEEDAA /* WBCBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C3850F1A17B6E000AEEDAA /* WBCBoardViewController.m */; };
 		72C385131A17B75A00AEEDAA /* WBCBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C385121A17B75A00AEEDAA /* WBCBoardView.m */; };
 		72C385181A17C5E300AEEDAA /* gotham-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C385171A17C5E300AEEDAA /* gotham-bold.ttf */; };
-		72C3851B1A17D6AE00AEEDAA /* WBCSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C3851A1A17D6AE00AEEDAA /* WBCSettingsTableViewController.m */; };
+		72C3851B1A17D6AE00AEEDAA /* WBCLanguagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C3851A1A17D6AE00AEEDAA /* WBCLanguagesTableViewController.m */; };
 		72C3851E1A17DD2200AEEDAA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C3851C1A17DD2200AEEDAA /* LaunchScreen.xib */; };
 		72D357B31A15780F002344CB /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */; };
 		72D357B51A157840002344CB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B41A157840002344CB /* CoreImage.framework */; };
@@ -50,6 +51,8 @@
 		723FF9D31A18BBE5008B3AC1 /* WBCLanguages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCLanguages.h; sourceTree = "<group>"; };
 		723FF9D41A18BBE5008B3AC1 /* WBCLanguages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCLanguages.m; sourceTree = "<group>"; };
 		723FF9D61A18C013008B3AC1 /* words_fi.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_fi.txt; sourceTree = "<group>"; };
+		723FF9DB1A193B09008B3AC1 /* WBCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCMainViewController.h; sourceTree = "<group>"; };
+		723FF9DC1A193B09008B3AC1 /* WBCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCMainViewController.m; sourceTree = "<group>"; };
 		725143311A180F9A00788602 /* WBCWordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCWordTableViewCell.h; sourceTree = "<group>"; };
 		725143321A180F9A00788602 /* WBCWordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCWordTableViewCell.m; sourceTree = "<group>"; };
 		72728C5E1A1514A80061EA3C /* WordbaseCheater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordbaseCheater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +99,8 @@
 		72C385111A17B75A00AEEDAA /* WBCBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCBoardView.h; sourceTree = "<group>"; };
 		72C385121A17B75A00AEEDAA /* WBCBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCBoardView.m; sourceTree = "<group>"; };
 		72C385171A17C5E300AEEDAA /* gotham-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gotham-bold.ttf"; sourceTree = "<group>"; };
-		72C385191A17D6AE00AEEDAA /* WBCSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCSettingsTableViewController.h; sourceTree = "<group>"; };
-		72C3851A1A17D6AE00AEEDAA /* WBCSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCSettingsTableViewController.m; sourceTree = "<group>"; };
+		72C385191A17D6AE00AEEDAA /* WBCLanguagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCLanguagesTableViewController.h; sourceTree = "<group>"; };
+		72C3851A1A17D6AE00AEEDAA /* WBCLanguagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCLanguagesTableViewController.m; sourceTree = "<group>"; };
 		72C3851D1A17DD2200AEEDAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		72D357B41A157840002344CB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -215,12 +218,14 @@
 		72728C8C1A1514F30061EA3C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				723FF9DB1A193B09008B3AC1 /* WBCMainViewController.h */,
+				723FF9DC1A193B09008B3AC1 /* WBCMainViewController.m */,
 				72728CA01A1515500061EA3C /* WBCWordsTableViewController.h */,
 				72728CA11A1515500061EA3C /* WBCWordsTableViewController.m */,
 				72C3850E1A17B6E000AEEDAA /* WBCBoardViewController.h */,
 				72C3850F1A17B6E000AEEDAA /* WBCBoardViewController.m */,
-				72C385191A17D6AE00AEEDAA /* WBCSettingsTableViewController.h */,
-				72C3851A1A17D6AE00AEEDAA /* WBCSettingsTableViewController.m */,
+				72C385191A17D6AE00AEEDAA /* WBCLanguagesTableViewController.h */,
+				72C3851A1A17D6AE00AEEDAA /* WBCLanguagesTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -407,11 +412,12 @@
 				72728C9F1A1515290061EA3C /* WBCTile.m in Sources */,
 				72728D551A1519BE0061EA3C /* UIImage+WBCPicker.m in Sources */,
 				72728CA21A1515500061EA3C /* WBCWordsTableViewController.m in Sources */,
+				723FF9DD1A193B09008B3AC1 /* WBCMainViewController.m in Sources */,
 				72728D621A15285B0061EA3C /* GVUserDefaults+WBCSettings.m in Sources */,
 				72728D541A1519BE0061EA3C /* UIColor+WBCWordbase.m in Sources */,
 				72728D4D1A1518570061EA3C /* WBCIndexPath.m in Sources */,
 				72C385131A17B75A00AEEDAA /* WBCBoardView.m in Sources */,
-				72C3851B1A17D6AE00AEEDAA /* WBCSettingsTableViewController.m in Sources */,
+				72C3851B1A17D6AE00AEEDAA /* WBCLanguagesTableViewController.m in Sources */,
 				72C3850A1A17855300AEEDAA /* WBCDirectedGraph.m in Sources */,
 				72728C9E1A1515290061EA3C /* WBCPreparationFilter.m in Sources */,
 				72728C901A1514F30061EA3C /* WBCAppDelegate.m in Sources */,

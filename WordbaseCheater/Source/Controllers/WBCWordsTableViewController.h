@@ -10,4 +10,8 @@
 
 @interface WBCWordsTableViewController : UITableViewController
 
+@property (assign, nonatomic) WBCLanguage language;
+@property (assign, nonatomic) WBCTileOwner owner;
+@property (strong, nonatomic) UIImage *screenshot;
+
 @end

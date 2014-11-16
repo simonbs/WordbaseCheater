@@ -13,5 +13,7 @@
 + (UIColor *)WBCWordbaseDarkOrange;
 + (UIColor *)WBCWordbaseLightOrange;
 + (UIColor *)WBCWordbaseBlue;
++ (UIColor *)WBCWordbaseLightGreen;
++ (UIColor *)WBCWordbaseDarkGreen;
 
 @end

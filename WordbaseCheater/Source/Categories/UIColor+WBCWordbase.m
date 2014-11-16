@@ -25,4 +25,12 @@
     return [UIColor colorWithRed:0.0f/255.0f green:201.0f/255.0f blue:232.0f/255.0f alpha:1.0f];
 }
 
++ (UIColor *)WBCWordbaseLightGreen {
+	return [UIColor colorWithRed:0.0f/255.0f green:220.0f/255.0f blue:47.0f/255.0f alpha:1.0f];
+}
+
++ (UIColor *)WBCWordbaseDarkGreen {
+	return [UIColor colorWithRed:0.0f/255.0f green:136.0f/255.0f blue:29.0f/255.0f alpha:1.0f];
+}
+
 @end
