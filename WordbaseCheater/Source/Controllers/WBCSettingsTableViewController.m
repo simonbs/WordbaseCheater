@@ -35,16 +35,16 @@
 	self.englishTableViewCell.accessoryType = UITableViewCellAccessoryNone;
 	self.danishTableViewCell.accessoryType = UITableViewCellAccessoryNone;;
 	
-	NSString *language = [GVUserDefaults standardUserDefaults].language;
-	if ([language isEqualToString:WBCLanguageEnglish]) {
+	WBCLanguage language = [[GVUserDefaults standardUserDefaults] primitiveLanguage];
+	if (language == WBCLanguageEnglish) {
 		self.englishTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
-	} else if ([language isEqualToString:WBCLanguageDanish]) {
+	} else if (language == WBCLanguageDanish) {
 		self.danishTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
 }
 
-- (void)useLanguage:(NSString *)language {
-	[GVUserDefaults standardUserDefaults].language = language;
+- (void)useLanguage:(WBCLanguage)language {
+	[GVUserDefaults standardUserDefaults].language = @(language);
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	[self selectCurrentLanguage];
 }

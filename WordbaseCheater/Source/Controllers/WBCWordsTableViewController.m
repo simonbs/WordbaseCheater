@@ -124,7 +124,7 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 }
 
 - (void)prepareKnownWords {
-	NSString *language = [GVUserDefaults standardUserDefaults].language;
+	NSString *language = [WBCLanguages nameForLanguage:[[GVUserDefaults standardUserDefaults] primitiveLanguage]];
 	NSString *filename = [NSString stringWithFormat:@"words_%@", language];
 	NSString *wordsPath = [[NSBundle mainBundle] pathForResource:filename ofType:@"txt"];
 	NSString *wordsText = [NSString stringWithContentsOfFile:wordsPath encoding:NSUTF8StringEncoding error:nil];
@@ -140,7 +140,11 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 	[self.activityIndicatorView startAnimating];
 	[self.navigationItem setLeftBarButtonItem:self.activityIndicatorBarButtonItem animated:YES];
 	
-	WBCBoardCreator *boardCreator = [WBCBoardCreator boardCreatorWithImage:screenshot];
+	WBCLanguage language = [[GVUserDefaults standardUserDefaults] primitiveLanguage];
+	NSString *traineddata = [WBCLanguages traineddataForLanguage:language];
+	NSString *whitelist = [WBCLanguages whitelistForLanguage:language];
+	
+	WBCBoardCreator *boardCreator = [WBCBoardCreator boardCreatorWithImage:screenshot traineddata:traineddata whitelist:whitelist];
 	[boardCreator createBoard:^(WBCBoard *board) {
 		self.board = board;
 		self.graphScanner = [WBCGraphScanner scannerWithBoard:board];

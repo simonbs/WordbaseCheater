@@ -7,9 +7,7 @@
 //
 
 #import <GVUserDefaults/GVUserDefaults.h>
-
-static NSString* const WBCLanguageEnglish = @"en";
-static NSString* const WBCLanguageDanish = @"da";
+#import "WBCLanguages.h"
 
 typedef NS_ENUM(NSInteger, WBCTileOwner) {
 	WBCTileOwnerUnknown = -1,
@@ -19,7 +17,9 @@ typedef NS_ENUM(NSInteger, WBCTileOwner) {
 
 @interface GVUserDefaults (WBCSettings)
 
-@property (nonatomic) NSString *language;
+@property (nonatomic) NSNumber *language;
 @property (nonatomic) WBCTileOwner owner;
+
+- (WBCLanguage)primitiveLanguage;
 
 @end

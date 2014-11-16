@@ -17,7 +17,6 @@
 #import "UIImage+WBCPicker.h"
 #import "UIColor+WBCWordbase.h"
 
-#define WBCTesseractCharactersWhitelist @"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 #define WBCBoardColumnsCount 10
 #define WBCBoardRowsCount 13
 #define WBCBlackColorThreshold 0.10f
@@ -25,6 +24,8 @@
 
 @interface WBCBoardCreator () <TesseractDelegate>
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *traineddata;
+@property (strong, nonatomic) NSString *whitelist;
 @property (strong, nonatomic) UIImage *croppedImage;
 @property (strong, nonatomic) UIImage *preparedImage;
 @property (strong, nonatomic) UIImage *invertedImage;
@@ -36,21 +37,25 @@
 #pragma mark -
 #pragma mark Lifecycle
 
-- (instancetype)initWithImage:(UIImage *)image {
+- (instancetype)initWithImage:(UIImage *)image traineddata:(NSString *)traineddata whitelist:(NSString *)whitelist {
     if (self = [super init]) {
         _image = image;
+		_traineddata = traineddata;
+		_whitelist = whitelist;
 		_cropRect = CGRectNull;
     }
     
     return self;
 }
 
-+ (instancetype)boardCreatorWithImage:(UIImage *)image {
-    return [[[self class] alloc] initWithImage:image];
++ (instancetype)boardCreatorWithImage:(UIImage *)image traineddata:(NSString *)traineddata whitelist:(NSString *)whitelist {
+    return [[[self class] alloc] initWithImage:image traineddata:traineddata whitelist:whitelist];
 }
 
 - (void)dealloc {
     _image = nil;
+	_traineddata = nil;
+	_whitelist = nil;
     _croppedImage = nil;
     _preparedImage = nil;
 	_invertedImage = nil;
@@ -333,9 +338,9 @@
 }
 
 - (Tesseract *)createTesseractWithImage:(UIImage *)image pageSegmentationMode:(NSString *)pageSegmentationMode rect:(CGRect)rect {
-	Tesseract *tesseract = [[Tesseract alloc] initWithLanguage:@"dawordbase"];
+	Tesseract *tesseract = [[Tesseract alloc] initWithLanguage:self.traineddata];
 	tesseract.delegate = self;
-	[tesseract setVariableValue:WBCTesseractCharactersWhitelist forKey:@"tessedit_char_whitelist"];
+	[tesseract setVariableValue:self.whitelist forKey:@"tessedit_char_whitelist"];
 	[tesseract setVariableValue:pageSegmentationMode forKey:@"tessedit_pageseg_mode"];
 	[tesseract setVariableValue:@"1" forKey:@"tessedit_single_match"];
 	[tesseract setImage:image];

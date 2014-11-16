@@ -16,8 +16,15 @@
 #pragma mark Lifecycle
 
 - (NSDictionary *)setupDefaults {
-	return @{ @"language" : WBCLanguageEnglish,
+	return @{ @"language" : @(WBCLanguageEnglish),
 			  @"owner" : @(WBCTileOwnerOrange) };
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (WBCLanguage)primitiveLanguage {
+	return [self.language integerValue];
 }
 
 @end

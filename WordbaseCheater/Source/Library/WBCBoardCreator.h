@@ -12,8 +12,8 @@
 
 @interface WBCBoardCreator : NSObject
 
-- (instancetype)initWithImage:(UIImage *)image;
-+ (instancetype)boardCreatorWithImage:(UIImage *)image;
+- (instancetype)initWithImage:(UIImage *)image traineddata:(NSString *)traineddata whitelist:(NSString *)whitelist;
++ (instancetype)boardCreatorWithImage:(UIImage *)image traineddata:(NSString *)traineddata whitelist:(NSString *)whitelist;
 - (void)createBoard:(void(^)(WBCBoard *board))completion;
 
 @end
