@@ -175,7 +175,7 @@ static NSString* const WBCMainWordsSegue = @"Words";
 	UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:1.0f orientation:UIImageOrientationUp];
 	CGImageRelease(imageRef);
 	
-	CGRect roundRect = CGRectMake(0.0f, 0.0f, size.width, size.width);
+	CGRect roundRect = CGRectMake(0.0f, 0.0f, size.width, size.height);
 	
 	UIGraphicsBeginImageContext(size);
 	UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:roundRect cornerRadius:5.0f];
