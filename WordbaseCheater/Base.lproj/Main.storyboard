@@ -313,7 +313,7 @@
             </objects>
             <point key="canvasLocation" x="151" y="623"/>
         </scene>
-        <!--Matches-->
+        <!--Words-->
         <scene sceneID="QTn-Mg-86f">
             <objects>
                 <tableViewController id="PCv-Ue-3bb" customClass="WBCWordsTableViewController" sceneMemberID="viewController">
@@ -361,7 +361,7 @@
                             <outlet property="delegate" destination="PCv-Ue-3bb" id="XKF-8H-pDv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Matches" id="j3y-p9-CtK">
+                    <navigationItem key="navigationItem" title="Words" id="j3y-p9-CtK">
                         <barButtonItem key="leftBarButtonItem" title="Start over" id="Q3E-zW-48D">
                             <connections>
                                 <action selector="startOverButtonPressed:" destination="PCv-Ue-3bb" id="Ane-Hq-nIm"/>

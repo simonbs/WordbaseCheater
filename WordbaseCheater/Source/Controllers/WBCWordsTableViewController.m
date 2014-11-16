@@ -240,7 +240,7 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 - (void)graphScannerDidCreateGraph:(WBCGraphScanner *)scanner {
 	self.results = [NSMutableArray new];
 	[self.tableView reloadData];
-		
+	
 	self.stopped = NO;
 	[self.graphScanner searchGraphAsOwner:self.owner];
 }

@@ -162,10 +162,8 @@ static NSString* const WBCMainWordsSegue = @"Words";
 	scaledSize.width *= scaleFactor;
 	scaledSize.height *= scaleFactor;
 	
-	CGRect drawRect = CGRectMake(0.0f, 0.0f, scaledSize.width, scaledSize.height);
-	
 	UIGraphicsBeginImageContext(scaledSize);
-	[screenshot drawInRect:drawRect];
+	[screenshot drawInRect: CGRectMake(0.0f, 0.0f, scaledSize.width, scaledSize.height)];
 	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	
@@ -177,7 +175,16 @@ static NSString* const WBCMainWordsSegue = @"Words";
 	UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:1.0f orientation:UIImageOrientationUp];
 	CGImageRelease(imageRef);
 	
-	return croppedImage;
+	CGRect roundRect = CGRectMake(0.0f, 0.0f, size.width, size.width);
+	
+	UIGraphicsBeginImageContext(size);
+	UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:roundRect cornerRadius:5.0f];
+	[path addClip];
+	[croppedImage drawInRect:roundRect];
+	UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return roundedImage;
 }
 
 #pragma mark -
