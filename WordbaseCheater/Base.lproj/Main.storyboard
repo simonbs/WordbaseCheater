@@ -100,14 +100,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z07-aN-O13" customClass="WBCBoardView">
-                                            <rect key="frame" x="20" y="8" width="34" height="43"/>
+                                            <rect key="frame" x="20" y="8" width="33" height="43"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" secondItem="z07-aN-O13" secondAttribute="width" multiplier="100:80" id="XHJ-xf-S3c"/>
+                                                <constraint firstAttribute="height" secondItem="z07-aN-O13" secondAttribute="width" multiplier="13:10" id="XHJ-xf-S3c"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-H7-KRU">
-                                            <rect key="frame" x="64" y="19" width="42" height="21"/>
+                                            <rect key="frame" x="63" y="19" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
