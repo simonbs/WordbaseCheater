@@ -213,7 +213,7 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 		// Add to score if tile is in "the right direction"
 		if ((owner == WBCTileOwnerOrange && node.indexPath.row > maxOwnedRow) ||
 			(owner == WBCTileOwnerBlue && node.indexPath.row < minOwnedRow)) {
-			score += 5;
+			score += 10;
 		}
 		
 		// Add to score if it is a bomb tile
