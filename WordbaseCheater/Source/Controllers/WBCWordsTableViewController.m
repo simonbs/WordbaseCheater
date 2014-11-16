@@ -182,12 +182,18 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 }
 
 - (NSUInteger)scoreForPath:(NSArray *)path {
+	WBCTileOwner owner = [self selectedOwner];
+	
 	NSUInteger minRow = [[self.board.tiles valueForKeyPath:@"@min.indexPath.row"] integerValue];
 	NSUInteger maxRow = [[self.board.tiles valueForKeyPath:@"@max.indexPath.row"] integerValue];
 	
+	NSPredicate *ownedPredicate = [NSPredicate predicateWithFormat:@"owner == %i", owner];
+	NSArray *ownedTiles = [self.board.tiles filteredArrayUsingPredicate:ownedPredicate];
+	
+	NSUInteger minOwnedRow = [[ownedTiles valueForKeyPath:@"@min.indexPath.row"] integerValue];
+	NSUInteger maxOwnedRow = [[ownedTiles valueForKeyPath:@"@max.indexPath.row"] integerValue];
+	
 	NSInteger score = 0;
-	WBCGraphNode *firstNode = [path firstObject];
-	WBCTileOwner owner = [self selectedOwner];
 	for (WBCGraphNode *node in path) {
 		NSUInteger index = [self.board.tiles indexOfObjectPassingTest:^BOOL(WBCTile *tile, NSUInteger idx, BOOL *stop) {
 			BOOL match = tile.indexPath.row == node.indexPath.row && tile.indexPath.column == node.indexPath.column;
@@ -205,8 +211,8 @@ static NSString* const WBCWordsSettingsSegue = @"Settings";
 		}
 		
 		// Add to score if tile is in "the right direction"
-		if ((owner == WBCTileOwnerOrange && node.indexPath.row > firstNode.indexPath.row) ||
-			(owner == WBCTileOwnerBlue && node.indexPath.row < firstNode.indexPath.row)) {
+		if ((owner == WBCTileOwnerOrange && node.indexPath.row > maxOwnedRow) ||
+			(owner == WBCTileOwnerBlue && node.indexPath.row < minOwnedRow)) {
 			score += 5;
 		}
 		
