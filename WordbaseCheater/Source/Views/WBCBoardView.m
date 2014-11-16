@@ -54,7 +54,7 @@
 		BOOL isTileSelected = index != NSNotFound;
 		
 		if (isTileSelected) {
-			fillColor = [UIColor colorWithRed:22.0f/255.0f green:208.0f/255.0f blue:7.0f/255.0f alpha:1.0f];
+			fillColor = [UIColor WBCWordbaseLightGreen];
 			badgeText = [NSString stringWithFormat:@"%lu", index + 1];
 		} else if (tile.owner == WBCTileOwnerOrange) {
 			fillColor = [UIColor WBCWordbaseDarkOrange];
@@ -62,9 +62,12 @@
 			fillColor = [UIColor WBCWordbaseBlue];
 		} else if (tile.isBombTile) {
 			fillColor = [UIColor blackColor];
-			textColor = [UIColor whiteColor];
 		} else {
 			fillColor = [UIColor whiteColor];
+		}
+		
+		if (tile.isBombTile) {
+			textColor = [UIColor whiteColor];
 		}
 		
 		CGContextSetFillColorWithColor(context, fillColor.CGColor);
