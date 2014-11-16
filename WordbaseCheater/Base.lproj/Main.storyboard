@@ -168,31 +168,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpz-CO-woZ" userLabel="Board Container View">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NN6-yq-0Aj" customClass="WBCBoardView">
-                                        <rect key="frame" x="0.0" y="-122" width="600" height="780"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="NN6-yq-0Aj" secondAttribute="height" multiplier="10:13" id="WRC-ov-QIK"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFJ-Xs-3uv" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="NN6-yq-0Aj" firstAttribute="leading" secondItem="mpz-CO-woZ" secondAttribute="leading" id="5Le-Us-Syi"/>
-                                    <constraint firstAttribute="trailing" secondItem="NN6-yq-0Aj" secondAttribute="trailing" id="LQL-H0-Hpe"/>
-                                    <constraint firstAttribute="centerY" secondItem="NN6-yq-0Aj" secondAttribute="centerY" id="zNr-OU-m2X"/>
+                                    <constraint firstAttribute="height" constant="45" id="FXN-36-9xw"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fs-mY-Jwp" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="555" width="600" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ap0-nt-PXq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NN6-yq-0Aj" customClass="WBCBoardView">
+                                <rect key="frame" x="0.0" y="109" width="600" height="446"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HlL-Bn-kVO" firstAttribute="top" secondItem="mpz-CO-woZ" secondAttribute="bottom" id="E0O-Ve-GK3"/>
-                            <constraint firstItem="mpz-CO-woZ" firstAttribute="top" secondItem="pnj-82-iBD" secondAttribute="bottom" id="JpD-4J-iO1"/>
-                            <constraint firstItem="mpz-CO-woZ" firstAttribute="leading" secondItem="Wwp-I0-o5T" secondAttribute="leading" id="buh-En-1KM"/>
-                            <constraint firstAttribute="trailing" secondItem="mpz-CO-woZ" secondAttribute="trailing" id="eYc-qZ-MuP"/>
+                            <constraint firstItem="NN6-yq-0Aj" firstAttribute="top" secondItem="xFJ-Xs-3uv" secondAttribute="bottom" id="HFS-bv-MiT"/>
+                            <constraint firstAttribute="trailing" secondItem="xFJ-Xs-3uv" secondAttribute="trailing" id="O5D-qN-Bne"/>
+                            <constraint firstAttribute="trailing" secondItem="NN6-yq-0Aj" secondAttribute="trailing" id="SO1-DR-uL4"/>
+                            <constraint firstItem="xFJ-Xs-3uv" firstAttribute="top" secondItem="pnj-82-iBD" secondAttribute="bottom" id="Xha-bE-usi"/>
+                            <constraint firstItem="xFJ-Xs-3uv" firstAttribute="leading" secondItem="Wwp-I0-o5T" secondAttribute="leading" id="cZU-XB-Frc"/>
+                            <constraint firstItem="5Fs-mY-Jwp" firstAttribute="top" secondItem="NN6-yq-0Aj" secondAttribute="bottom" id="ePb-8C-ZFG"/>
+                            <constraint firstItem="5Fs-mY-Jwp" firstAttribute="leading" secondItem="Wwp-I0-o5T" secondAttribute="leading" id="i9b-D3-dLo"/>
+                            <constraint firstItem="HlL-Bn-kVO" firstAttribute="top" secondItem="5Fs-mY-Jwp" secondAttribute="bottom" id="mvG-Ir-gqx"/>
+                            <constraint firstAttribute="trailing" secondItem="5Fs-mY-Jwp" secondAttribute="trailing" id="tHu-w8-etR"/>
+                            <constraint firstItem="NN6-yq-0Aj" firstAttribute="leading" secondItem="Wwp-I0-o5T" secondAttribute="leading" id="uvN-yS-GMl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Board" id="ua9-Ec-Fjt"/>
