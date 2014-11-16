@@ -11,6 +11,7 @@
 @interface WBCSettingsTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *englishTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *danishTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *finnishTableViewCell;
 @end
 
 @implementation WBCSettingsTableViewController
@@ -33,13 +34,16 @@
 
 - (void)selectCurrentLanguage {
 	self.englishTableViewCell.accessoryType = UITableViewCellAccessoryNone;
-	self.danishTableViewCell.accessoryType = UITableViewCellAccessoryNone;;
+	self.danishTableViewCell.accessoryType = UITableViewCellAccessoryNone;
+	self.finnishTableViewCell.accessoryType = UITableViewCellAccessoryNone;
 	
 	WBCLanguage language = [[GVUserDefaults standardUserDefaults] primitiveLanguage];
 	if (language == WBCLanguageEnglish) {
 		self.englishTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
 	} else if (language == WBCLanguageDanish) {
 		self.danishTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+	} else if (language == WBCLanguageFinnish) {
+		self.finnishTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
 }
 
@@ -58,6 +62,8 @@
 		[self useLanguage:WBCLanguageEnglish];
 	} else if (cell == self.danishTableViewCell) {
 		[self useLanguage:WBCLanguageDanish];
+	} else if (cell == self.finnishTableViewCell) {
+		[self useLanguage:WBCLanguageFinnish];
 	}
 }
 

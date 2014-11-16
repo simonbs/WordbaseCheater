@@ -45,6 +45,20 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="cZB-bN-u1n" style="IBUITableViewCellStyleDefault" id="SN6-4Y-MEw">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SN6-4Y-MEw" id="DaD-8Z-b5S">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Finnish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cZB-bN-u1n">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -63,6 +77,7 @@
                     <connections>
                         <outlet property="danishTableViewCell" destination="Qi1-NY-oqV" id="22E-fX-XdF"/>
                         <outlet property="englishTableViewCell" destination="acC-sf-5WV" id="sz2-Hv-s1Q"/>
+                        <outlet property="finnishTableViewCell" destination="SN6-4Y-MEw" id="4BD-k6-JlD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1N-be-MFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
