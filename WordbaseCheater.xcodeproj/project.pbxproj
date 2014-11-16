@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		723FF9D51A18BBE5008B3AC1 /* WBCLanguages.m in Sources */ = {isa = PBXBuildFile; fileRef = 723FF9D41A18BBE5008B3AC1 /* WBCLanguages.m */; };
+		723FF9D71A18C013008B3AC1 /* words_fi.txt in Resources */ = {isa = PBXBuildFile; fileRef = 723FF9D61A18C013008B3AC1 /* words_fi.txt */; };
 		725143331A180F9A00788602 /* WBCWordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 725143321A180F9A00788602 /* WBCWordTableViewCell.m */; };
 		72728C641A1514A80061EA3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72728C631A1514A80061EA3C /* main.m */; };
 		72728C6D1A1514A80061EA3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72728C6B1A1514A80061EA3C /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		61948D1569E0A30A6D1A5A4B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		723FF9D31A18BBE5008B3AC1 /* WBCLanguages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCLanguages.h; sourceTree = "<group>"; };
 		723FF9D41A18BBE5008B3AC1 /* WBCLanguages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCLanguages.m; sourceTree = "<group>"; };
+		723FF9D61A18C013008B3AC1 /* words_fi.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_fi.txt; sourceTree = "<group>"; };
 		725143311A180F9A00788602 /* WBCWordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCWordTableViewCell.h; sourceTree = "<group>"; };
 		725143321A180F9A00788602 /* WBCWordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCWordTableViewCell.m; sourceTree = "<group>"; };
 		72728C5E1A1514A80061EA3C /* WordbaseCheater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordbaseCheater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +276,7 @@
 				72C385171A17C5E300AEEDAA /* gotham-bold.ttf */,
 				72728D671A152E030061EA3C /* words_da.txt */,
 				72728D681A152E030061EA3C /* words_en.txt */,
+				723FF9D61A18C013008B3AC1 /* words_fi.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				72728D691A152E030061EA3C /* words_da.txt in Resources */,
 				72C385181A17C5E300AEEDAA /* gotham-bold.ttf in Resources */,
 				72D357B71A15787A002344CB /* tessdata in Resources */,
+				723FF9D71A18C013008B3AC1 /* words_fi.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
