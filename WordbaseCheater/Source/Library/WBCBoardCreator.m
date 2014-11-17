@@ -26,9 +26,6 @@
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *traineddata;
 @property (strong, nonatomic) NSString *whitelist;
-@property (strong, nonatomic) UIImage *croppedImage;
-@property (strong, nonatomic) UIImage *preparedImage;
-@property (strong, nonatomic) UIImage *invertedImage;
 @property (assign, nonatomic) CGRect cropRect;
 @end
 
@@ -56,9 +53,6 @@
     _image = nil;
 	_traineddata = nil;
 	_whitelist = nil;
-    _croppedImage = nil;
-    _preparedImage = nil;
-	_invertedImage = nil;
 }
 
 #pragma mark -
@@ -67,17 +61,20 @@
 - (void)createBoard:(void(^)(WBCBoard *board))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         CGRect cropRect = [self cropRect];
-        self.croppedImage = [self cropImage:self.image rect:cropRect];
-        self.preparedImage = [self prepareImage];
-		self.invertedImage = [self invertImage];
+        UIImage *croppedImage = [self cropImage:self.image rect:cropRect];
+        UIImage *preparedImage = [self prepareImage:croppedImage];
+		UIImage *invertedImage = [self invertImage:preparedImage];
+		NSArray *bombRects = [self bombRectsInImage:preparedImage];
 		
-		[self saveImage:self.invertedImage name:@"inverted_image"];
+		UIImage *imageWithoutBombs = [self removeTilesFromImage:preparedImage usingRects:bombRects removeTilesNotInRects:NO rectInset:-4.0f];
+		UIImage *bombsOnlyImage = [self removeTilesFromImage:invertedImage usingRects:bombRects removeTilesNotInRects:YES rectInset:4.0f];
 		
-		Tesseract *tesseract = [self createTesseractWithImage:self.preparedImage];
-		[tesseract recognize];
-		NSArray *allConfidences = [tesseract getConfidenceBySymbol];
-		tesseract = nil;
-		WBCBoard *board = [self boardFromConfidences:allConfidences];
+		[self saveImage:croppedImage name:@"cropped_image"];
+		[self saveImage:preparedImage name:@"prepared_image"];
+		[self saveImage:imageWithoutBombs name:@"no_bombs_image"];
+		[self saveImage:bombsOnlyImage name:@"bombs_only_image"];
+		
+		WBCBoard *board = [self boardFromColoredImage:croppedImage imageWithoutBombs:imageWithoutBombs bombsOnlyImage:bombsOnlyImage];
 		
 		if (completion) {
 			dispatch_async(dispatch_get_main_queue(), ^{
@@ -90,20 +87,28 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (WBCBoard *)boardFromConfidences:(NSArray *)allConfidences {
-	CGFloat preparedImageHeight = self.preparedImage.size.height;
+- (WBCBoard *)boardFromColoredImage:(UIImage *)coloredImage imageWithoutBombs:(UIImage *)imageWithoutBombs bombsOnlyImage:(UIImage *)bombsOnlyImage {
+	Tesseract *tesseract = [self createTesseractWithImage:imageWithoutBombs];
+	[tesseract recognize];
+	NSArray *tilesConfidences = [tesseract getConfidenceBySymbol];
+	
+	tesseract = [self createTesseractWithImage:bombsOnlyImage];
+	[tesseract recognize];
+	NSArray *bombsConfidences = [tesseract getConfidenceBySymbol];
+	
+	tesseract = nil;
+	
+	CGFloat preparedImageHeight = coloredImage.size.height;
 	CGSize tileSize = [self tileSize];
 	NSMutableArray *tiles = [NSMutableArray array];
-	
-	NSMutableArray *bombRects = [NSMutableArray new];
 	
 	for (NSInteger c = 0; c < WBCBoardColumnsCount; c++) {
 		for (NSInteger r = 0; r < WBCBoardRowsCount; r++) {
 			CGRect tileRect = CGRectMake(c * tileSize.width, r * tileSize.height, tileSize.width, tileSize.height);
 			CGPoint colorSamplePos = [self colorSamplePositionInTileRect:tileRect];
 			
-			UIColor *tileColor = [self.croppedImage WBCColorAtPosition:colorSamplePos];
-			UIColor *preparedTileColor = [self.preparedImage WBCColorAtPosition:colorSamplePos];
+			UIColor *tileColor = [coloredImage WBCColorAtPosition:colorSamplePos];
+			UIColor *preparedTileColor = [coloredImage WBCColorAtPosition:colorSamplePos];
 			
 			WBCIndexPath *indexPath = [WBCIndexPath indexPathForRow:r column:c];
 			WBCTileOwner owner = [self ownerForColor:tileColor];
@@ -111,116 +116,84 @@
 			CGFloat confidence = WBCTileUnkownConfidence;
 			NSString *value = nil;
 			
-			if (isBomb) {
-				// It's a bomb, we'll handle it later as characters recognized on bombs in the prepared image
-				// is often incorrect.
-				// Inset tile a bit to remove any weird borders
-				CGRect insettedTile = CGRectInset(tileRect, 3, 3);
-				NSDictionary *bombRect = @{ @"indexPath": indexPath,
-											@"rect": [NSValue valueWithCGRect:insettedTile] };
-				[bombRects addObject:bombRect];
-			} else {
-				// It's not a bomb, so we'll create a tile right away
-				NSDictionary *confidenceBySymbol = [self confidenceBySymbolInTileRect:tileRect symbols:allConfidences imageHeight:preparedImageHeight];
+			NSArray *confidences = isBomb ? bombsConfidences : tilesConfidences;
+			NSDictionary *confidenceBySymbol = [self confidenceBySymbolInTileRect:tileRect symbols:confidences imageHeight:preparedImageHeight];
+			if (confidenceBySymbol) {
 				value = confidenceBySymbol[@"text"];
 				confidence = [confidenceBySymbol[@"confidence"] floatValue];
-				
-				WBCTile *tile = [WBCTile new];
-				tile.indexPath = indexPath;
-				tile.bombTile = isBomb;
-				tile.owner = owner;
-				tile.value = value;
-				tile.confidence = confidence;
-				[tiles addObject:tile];
 			}
+			
+			WBCTile *tile = [WBCTile new];
+			tile.indexPath = indexPath;
+			tile.bombTile = isBomb;
+			tile.owner = owner;
+			tile.value = value;
+			tile.confidence = confidence;
+			[tiles addObject:tile];
 		}
 	}
-	
-	NSArray *bombTiles = [self bombTilesInRects:bombRects];
-	[tiles addObjectsFromArray:bombTiles];
 	
 	return [WBCBoard boardWithTiles:tiles];
 }
 
-- (NSArray *)bombTilesInRects:(NSArray *)bombRects {
-	NSMutableArray *rects = [NSMutableArray new];
-	for (NSDictionary *bombRect in bombRects) {
-		[rects addObject:bombRect[@"rect"]];
+- (NSArray *)bombRectsInImage:(UIImage *)image {
+	CGSize tileSize = [self tileSize];
+	
+	NSMutableArray *bombRects = [NSMutableArray new];
+	
+	for (NSInteger c = 0; c < WBCBoardColumnsCount; c++) {
+		for (NSInteger r = 0; r < WBCBoardRowsCount; r++) {
+			CGRect tileRect = CGRectMake(c * tileSize.width, r * tileSize.height, tileSize.width, tileSize.height);
+			CGPoint colorSamplePos = [self colorSamplePositionInTileRect:tileRect];
+			UIColor *preparedTileColor = [image WBCColorAtPosition:colorSamplePos];
+			
+			WBCIndexPath *indexPath = [WBCIndexPath indexPathForRow:r column:c];
+			BOOL isBomb = [self isBlackTileColor:preparedTileColor];
+			
+			if (isBomb) {
+				NSDictionary *bombRect = @{ @"indexPath": indexPath, @"rect": [NSValue valueWithCGRect:tileRect] };
+				[bombRects addObject:bombRect];
+			}
+		}
 	}
 	
-	UIImage *linearBombsImage = [self linearTilesFromImage:self.invertedImage rects:rects];
-	CGFloat linearBombsImageHeight = linearBombsImage.size.height;
-	[self saveImage:linearBombsImage name:@"linear_bombs"];
-	
-	Tesseract *tesseract = [self createTesseractForLineRecognitionWithImage:linearBombsImage];
-	[tesseract recognize];
-	NSArray *allConfidences = [tesseract getConfidenceBySymbol];
-	tesseract = nil;
-	
-	NSMutableArray *tiles = [NSMutableArray new];
-	
-	NSUInteger count = [bombRects count];
-	for (NSUInteger i = 0; i < count; i++) {
-		NSDictionary *bombRect = bombRects[i];
-		CGRect rect = [bombRect[@"rect"] CGRectValue];
-		
-		CGFloat linearRectX = 0.0f;
-		for (NSUInteger j = 0; j < i; j++) {
-			linearRectX += CGRectGetWidth([bombRects[j][@"rect"] CGRectValue]);
-		}
-		
-		CGRect linearRect = CGRectZero;
-		linearRect.size = rect.size;
-		linearRect.origin.x = linearRectX;
-		
-		WBCIndexPath *indexPath = bombRect[@"indexPath"];
-		NSString *value = nil;
-		CGFloat confidence = WBCTileUnkownConfidence;
-		
-		NSDictionary *confidenceBySymbol = [self confidenceBySymbolInTileRect:linearRect symbols:allConfidences imageHeight:linearBombsImageHeight];
-		if (confidenceBySymbol) {
-			value = confidenceBySymbol[@"text"];
-			confidence = [confidenceBySymbol[@"confidence"] floatValue];
-		}
-
-		WBCTile *tile = [WBCTile new];
-		tile.indexPath = indexPath;
-		tile.bombTile = YES;
-		tile.owner = WBCTileOwnerUnknown;
-		tile.value = value;
-		tile.confidence = confidence;
-		[tiles addObject:tile];
-	}
-	
-	return tiles;
+	return bombRects;
 }
 
-- (UIImage *)linearTilesFromImage:(UIImage *)image rects:(NSArray *)rects {
-	CGFloat totalWidth = 0.0f;
-	CGFloat height = 0.0f;
-	
-	for (NSValue *value in rects) {
-		CGRect rect = [value CGRectValue];
-		totalWidth += CGRectGetWidth(rect);
-		height = MAX(height, CGRectGetHeight(rect));
+- (UIImage *)removeTilesFromImage:(UIImage *)image usingRects:(NSArray *)rects removeTilesNotInRects:(BOOL)removeNotInRects rectInset:(CGFloat)rectInset {
+	CGMutablePathRef path = CGPathCreateMutable();
+	for (NSDictionary *tile in rects) {
+		CGRect rect = [tile[@"rect"] CGRectValue];
+		CGRect expandedRect = CGRectInset(rect, rectInset, rectInset);
+		CGPathAddPath(path, nil, CGPathCreateWithRect(expandedRect, nil));
 	}
 	
-	CGSize imageSize = CGSizeMake(totalWidth, height);
-	UIGraphicsBeginImageContext(imageSize);
+	CGRect canvasRect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+	UIGraphicsBeginImageContext(image.size);
+	CGContextRef context = UIGraphicsGetCurrentContext();
 	
-	CGFloat nextX = 0.0f;
-	for (NSValue *value in rects) {
-		CGRect rect = [value CGRectValue];
-		UIImage *tileImage = [self cropImage:image rect:rect];
-		CGRect drawRect = CGRectMake(nextX, 0, CGRectGetWidth(rect), CGRectGetHeight(rect));
-		[tileImage drawInRect:drawRect];
-		nextX += CGRectGetWidth(rect);
+	if (removeNotInRects) {
+		CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+		CGContextFillRect(context, canvasRect);
+		
+		CGContextAddPath(context, path);
+		CGContextClip(context);
+		
+		[image drawInRect:canvasRect];
+	} else {
+		[image drawInRect:canvasRect];
+		
+		CGContextAddPath(context, path);
+		CGContextClip(context);
+		
+		CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+		CGContextFillRect(context, canvasRect);
 	}
 	
-	UIImage *linearImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIImage *tilesRemovedImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	
-	return linearImage;
+	return tilesRemovedImage;
 }
 
 - (void)saveImage:(UIImage *)image name:(NSString *)name {
@@ -329,15 +302,10 @@
 	return [self createTesseractWithImage:image pageSegmentationMode:@"6" rect:CGRectNull];
 }
 
-- (Tesseract *)createTesseractForSingleCharacterRecognitionWithImage:(UIImage *)image inRect:(CGRect)rect {
-	return [self createTesseractWithImage:image pageSegmentationMode:@"6" rect:rect];
-}
-
-- (Tesseract *)createTesseractForLineRecognitionWithImage:(UIImage *)image {
-	return [self createTesseractWithImage:image pageSegmentationMode:@"7" rect:CGRectNull];
-}
-
 - (Tesseract *)createTesseractWithImage:(UIImage *)image pageSegmentationMode:(NSString *)pageSegmentationMode rect:(CGRect)rect {
+#ifdef DEBUG
+	NSLog(@"Recognizing with language '%@', page segmentation mode %@ and whitelist '%@'", self.traineddata, pageSegmentationMode, self.whitelist);
+#endif
 	Tesseract *tesseract = [[Tesseract alloc] initWithLanguage:self.traineddata];
 	tesseract.delegate = self;
 	[tesseract setVariableValue:self.whitelist forKey:@"tessedit_char_whitelist"];
@@ -347,15 +315,16 @@
 	if (!CGRectEqualToRect(rect, CGRectNull)) {
 		[tesseract setRect:rect];
 	}
+	
 	return tesseract;
 }
 
-- (UIImage *)prepareImage {
-	return [self imageByApplyingFilter:[WBCPreparationFilter new] toImage:self.croppedImage];
+- (UIImage *)prepareImage:(UIImage *)image {
+	return [self imageByApplyingFilter:[WBCPreparationFilter new] toImage:image];
 }
 
-- (UIImage *)invertImage {
-	return [self imageByApplyingFilter:[GPUImageColorInvertFilter new] toImage:self.preparedImage];
+- (UIImage *)invertImage:(UIImage *)image {
+	return [self imageByApplyingFilter:[GPUImageColorInvertFilter new] toImage:image];
 }
 
 - (UIImage *)imageByApplyingFilter:(GPUImageOutput *)filter toImage:(UIImage *)image {
