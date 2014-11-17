@@ -141,14 +141,14 @@
 		if (owner == WBCTileOwnerOrange) {
 			for (NSInteger i = 0; i < nodesCount; i++) {
 				WBCGraphNode *node = self.graph.nodes[i];
-				if (node.owner == WBCTileOwnerOrange) {
+				if (node.owner == WBCTileOwnerOrange && node.value) {
 					[self.pathStack addObject:@[ node ]];
 				}
 			}
 		} else if (owner == WBCTileOwnerBlue) {
 			for (NSInteger i = nodesCount - 1; i >= 0; i--) {
 				WBCGraphNode *node = self.graph.nodes[i];
-				if (node.owner == WBCTileOwnerBlue) {
+				if (node.owner == WBCTileOwnerBlue && node.value) {
 					[self.pathStack addObject:@[ node ]];
 				}
 			}
@@ -185,7 +185,7 @@
 					if (shouldContinue) {
 						WBCGraphNode *lastNode = [path lastObject];
 						for (WBCGraphNode *neighbour in lastNode.neighbors) {
-							if (![path containsObject:neighbour]) {
+							if (![path containsObject:neighbour] && neighbour.value) {
 								NSMutableArray *mutablePath = [NSMutableArray arrayWithArray:path];
 								[mutablePath addObject:neighbour];
 								[self.pathStack addObject:[NSArray arrayWithArray:mutablePath]];
