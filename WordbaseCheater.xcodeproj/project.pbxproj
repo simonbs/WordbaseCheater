@@ -41,6 +41,7 @@
 		72D357B31A15780F002344CB /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */; };
 		72D357B51A157840002344CB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B41A157840002344CB /* CoreImage.framework */; };
 		72D357B71A15787A002344CB /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 72D357B61A15787A002344CB /* tessdata */; };
+		72EF75DF1A1A61DB00350255 /* words_de.txt in Resources */ = {isa = PBXBuildFile; fileRef = 72EF75DE1A1A61DB00350255 /* words_de.txt */; };
 		E0F8D574DFAE7940AE8B6376 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61948D1569E0A30A6D1A5A4B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		72D357B21A15780F002344CB /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		72D357B41A157840002344CB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		72D357B61A15787A002344CB /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		72EF75DE1A1A61DB00350255 /* words_de.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_de.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 				72728D671A152E030061EA3C /* words_da.txt */,
 				72728D681A152E030061EA3C /* words_en.txt */,
 				723FF9D61A18C013008B3AC1 /* words_fi.txt */,
+				72EF75DE1A1A61DB00350255 /* words_de.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			files = (
 				72728D6A1A152E030061EA3C /* words_en.txt in Resources */,
 				72728C6D1A1514A80061EA3C /* Main.storyboard in Resources */,
+				72EF75DF1A1A61DB00350255 /* words_de.txt in Resources */,
 				72728C6F1A1514A80061EA3C /* Images.xcassets in Resources */,
 				72C3851E1A17DD2200AEEDAA /* LaunchScreen.xib in Resources */,
 				72728D691A152E030061EA3C /* words_da.txt in Resources */,

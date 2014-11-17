@@ -12,7 +12,8 @@
 typedef NS_ENUM(NSInteger, WBCLanguage) {
 	WBCLanguageEnglish = 0,
 	WBCLanguageDanish,
-	WBCLanguageFinnish
+	WBCLanguageFinnish,
+	WBCLanguageGerman
 };
 
 @interface WBCLanguages : NSObject

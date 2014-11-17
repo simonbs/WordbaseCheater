@@ -17,34 +17,6 @@
                         <sections>
                             <tableViewSection id="l4N-3g-xpS">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="acC-sf-5WV">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="acC-sf-5WV" id="43K-PK-v77">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="united-kingdom" translatesAutoresizingMaskIntoConstraints="NO" id="aF2-h2-MCm">
-                                                    <rect key="frame" x="18" y="10" width="60" height="47"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="47" id="3EU-tg-UeS"/>
-                                                        <constraint firstAttribute="width" constant="60" id="3wf-LZ-oQK"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjm-Jc-iKC">
-                                                    <rect key="frame" x="88" y="23" width="504" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Zjm-Jc-iKC" secondAttribute="trailing" id="56L-G7-8ai"/>
-                                                <constraint firstAttribute="centerY" secondItem="Zjm-Jc-iKC" secondAttribute="centerY" id="Ttd-Tu-TlE"/>
-                                                <constraint firstAttribute="centerY" secondItem="aF2-h2-MCm" secondAttribute="centerY" id="jtP-eX-R9B"/>
-                                                <constraint firstItem="Zjm-Jc-iKC" firstAttribute="leading" secondItem="aF2-h2-MCm" secondAttribute="trailing" constant="10" id="pDS-ah-IcB"/>
-                                                <constraint firstItem="aF2-h2-MCm" firstAttribute="leading" secondItem="43K-PK-v77" secondAttribute="leadingMargin" constant="10" id="pGY-Sy-GDG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="LbP-jn-6vw">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LbP-jn-6vw" id="uWb-JS-34c">
@@ -70,6 +42,62 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="3Ky-ab-pJt" secondAttribute="trailing" id="Q2V-54-qG7"/>
                                                 <constraint firstItem="Z7q-3n-BDP" firstAttribute="leading" secondItem="uWb-JS-34c" secondAttribute="leadingMargin" constant="10" id="hT7-Mn-12g"/>
                                                 <constraint firstAttribute="centerY" secondItem="3Ky-ab-pJt" secondAttribute="centerY" id="s46-m7-6mx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="nRY-af-ejy">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nRY-af-ejy" id="hFH-pZ-0vf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="germany" translatesAutoresizingMaskIntoConstraints="NO" id="a59-Sx-Yhe">
+                                                    <rect key="frame" x="18" y="10" width="60" height="47"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="3dW-rA-oR9"/>
+                                                        <constraint firstAttribute="height" constant="47" id="vza-vd-bty"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="German" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-UM-pWB">
+                                                    <rect key="frame" x="88" y="23" width="504" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="sOO-UM-pWB" secondAttribute="centerY" id="4Fc-dw-9Py"/>
+                                                <constraint firstItem="sOO-UM-pWB" firstAttribute="leading" secondItem="a59-Sx-Yhe" secondAttribute="trailing" constant="10" id="Pf9-Hr-2Tc"/>
+                                                <constraint firstAttribute="centerY" secondItem="a59-Sx-Yhe" secondAttribute="centerY" id="YLF-0g-raC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sOO-UM-pWB" secondAttribute="trailing" id="dGh-WW-KRd"/>
+                                                <constraint firstItem="a59-Sx-Yhe" firstAttribute="leading" secondItem="hFH-pZ-0vf" secondAttribute="leadingMargin" constant="10" id="pF8-G5-1CY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="acC-sf-5WV">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="acC-sf-5WV" id="43K-PK-v77">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="united-kingdom" translatesAutoresizingMaskIntoConstraints="NO" id="aF2-h2-MCm">
+                                                    <rect key="frame" x="18" y="10" width="60" height="47"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="47" id="3EU-tg-UeS"/>
+                                                        <constraint firstAttribute="width" constant="60" id="3wf-LZ-oQK"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjm-Jc-iKC">
+                                                    <rect key="frame" x="88" y="23" width="504" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Zjm-Jc-iKC" secondAttribute="trailing" id="56L-G7-8ai"/>
+                                                <constraint firstAttribute="centerY" secondItem="Zjm-Jc-iKC" secondAttribute="centerY" id="Ttd-Tu-TlE"/>
+                                                <constraint firstAttribute="centerY" secondItem="aF2-h2-MCm" secondAttribute="centerY" id="jtP-eX-R9B"/>
+                                                <constraint firstItem="Zjm-Jc-iKC" firstAttribute="leading" secondItem="aF2-h2-MCm" secondAttribute="trailing" constant="10" id="pDS-ah-IcB"/>
+                                                <constraint firstItem="aF2-h2-MCm" firstAttribute="leading" secondItem="43K-PK-v77" secondAttribute="leadingMargin" constant="10" id="pGY-Sy-GDG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -120,6 +148,7 @@
                         <outlet property="danishTableViewCell" destination="LbP-jn-6vw" id="15X-q1-lck"/>
                         <outlet property="englishTableViewCell" destination="acC-sf-5WV" id="sz2-Hv-s1Q"/>
                         <outlet property="finnishTableViewCell" destination="T0R-p0-fRo" id="YKs-ag-2Vf"/>
+                        <outlet property="germanTableViewCell" destination="nRY-af-ejy" id="9CY-RY-wX8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1N-be-MFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -447,6 +476,7 @@
     <resources>
         <image name="denmark" width="70" height="47"/>
         <image name="finland" width="70" height="47"/>
+        <image name="germany" width="70" height="47"/>
         <image name="orange" width="70" height="47"/>
         <image name="select-screenshot" width="70" height="47"/>
         <image name="united-kingdom" width="70" height="47"/>

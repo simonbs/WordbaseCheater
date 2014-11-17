@@ -21,6 +21,8 @@
 			return @"da";
 		case WBCLanguageFinnish:
 			return @"fi";
+		case WBCLanguageGerman:
+			return @"de";
 		default:
 			break;
 	}
@@ -36,6 +38,8 @@
 			return @"Danish";
 		case WBCLanguageFinnish:
 			return @"Finnish";
+		case WBCLanguageGerman:
+			return @"German";
 		default:
 			break;
 	}
@@ -51,6 +55,8 @@
 			return @"dan";
 		case WBCLanguageFinnish:
 			return @"fin";
+		case WBCLanguageGerman:
+			return @"deu";
 		default:
 			break;
 	}
@@ -66,6 +72,9 @@
 			return @"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ";
 		case WBCLanguageFinnish:
 			return @"ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ";
+		case WBCLanguageGerman:
+			return @"ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ";
+
 		default:
 			break;
 	}
@@ -84,6 +93,9 @@
 			break;
 		case WBCLanguageFinnish:
 			imageName = @"finland";
+			break;
+		case WBCLanguageGerman:
+			imageName = @"germany";
 			break;
 		default:
 			break;
