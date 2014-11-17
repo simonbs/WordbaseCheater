@@ -42,6 +42,8 @@
 		72D357B51A157840002344CB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D357B41A157840002344CB /* CoreImage.framework */; };
 		72D357B71A15787A002344CB /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 72D357B61A15787A002344CB /* tessdata */; };
 		72EF75DF1A1A61DB00350255 /* words_de.txt in Resources */ = {isa = PBXBuildFile; fileRef = 72EF75DE1A1A61DB00350255 /* words_de.txt */; };
+		72EF75E21A1A809800350255 /* WBCScreenshotPickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF75E11A1A809800350255 /* WBCScreenshotPickerCollectionViewController.m */; };
+		72EF75E51A1A809E00350255 /* WBCScreenshotPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF75E41A1A809E00350255 /* WBCScreenshotPickerCollectionViewCell.m */; };
 		E0F8D574DFAE7940AE8B6376 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61948D1569E0A30A6D1A5A4B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,10 @@
 		72D357B41A157840002344CB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		72D357B61A15787A002344CB /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		72EF75DE1A1A61DB00350255 /* words_de.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words_de.txt; sourceTree = "<group>"; };
+		72EF75E01A1A809800350255 /* WBCScreenshotPickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCScreenshotPickerCollectionViewController.h; sourceTree = "<group>"; };
+		72EF75E11A1A809800350255 /* WBCScreenshotPickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCScreenshotPickerCollectionViewController.m; sourceTree = "<group>"; };
+		72EF75E31A1A809E00350255 /* WBCScreenshotPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCScreenshotPickerCollectionViewCell.h; sourceTree = "<group>"; };
+		72EF75E41A1A809E00350255 /* WBCScreenshotPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCScreenshotPickerCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +234,8 @@
 				72C3850F1A17B6E000AEEDAA /* WBCBoardViewController.m */,
 				72C385191A17D6AE00AEEDAA /* WBCLanguagesTableViewController.h */,
 				72C3851A1A17D6AE00AEEDAA /* WBCLanguagesTableViewController.m */,
+				72EF75E01A1A809800350255 /* WBCScreenshotPickerCollectionViewController.h */,
+				72EF75E11A1A809800350255 /* WBCScreenshotPickerCollectionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +247,8 @@
 				72C385121A17B75A00AEEDAA /* WBCBoardView.m */,
 				725143311A180F9A00788602 /* WBCWordTableViewCell.h */,
 				725143321A180F9A00788602 /* WBCWordTableViewCell.m */,
+				72EF75E31A1A809E00350255 /* WBCScreenshotPickerCollectionViewCell.h */,
+				72EF75E41A1A809E00350255 /* WBCScreenshotPickerCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -418,10 +428,12 @@
 				72728CA21A1515500061EA3C /* WBCWordsTableViewController.m in Sources */,
 				723FF9DD1A193B09008B3AC1 /* WBCMainViewController.m in Sources */,
 				72728D621A15285B0061EA3C /* GVUserDefaults+WBCSettings.m in Sources */,
+				72EF75E21A1A809800350255 /* WBCScreenshotPickerCollectionViewController.m in Sources */,
 				72728D541A1519BE0061EA3C /* UIColor+WBCWordbase.m in Sources */,
 				72728D4D1A1518570061EA3C /* WBCIndexPath.m in Sources */,
 				72C385131A17B75A00AEEDAA /* WBCBoardView.m in Sources */,
 				72C3851B1A17D6AE00AEEDAA /* WBCLanguagesTableViewController.m in Sources */,
+				72EF75E51A1A809E00350255 /* WBCScreenshotPickerCollectionViewCell.m in Sources */,
 				72C3850A1A17855300AEEDAA /* WBCDirectedGraph.m in Sources */,
 				72728C9E1A1515290061EA3C /* WBCPreparationFilter.m in Sources */,
 				72728C901A1514F30061EA3C /* WBCAppDelegate.m in Sources */,
