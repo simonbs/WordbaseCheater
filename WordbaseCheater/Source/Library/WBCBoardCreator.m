@@ -68,12 +68,7 @@
 		
 		UIImage *imageWithoutBombs = [self removeTilesFromImage:preparedImage usingRects:bombRects removeTilesNotInRects:NO rectInset:-4.0f];
 		UIImage *bombsOnlyImage = [self removeTilesFromImage:invertedImage usingRects:bombRects removeTilesNotInRects:YES rectInset:4.0f];
-		
-		[self saveImage:croppedImage name:@"cropped_image"];
-		[self saveImage:preparedImage name:@"prepared_image"];
-		[self saveImage:imageWithoutBombs name:@"no_bombs_image"];
-		[self saveImage:bombsOnlyImage name:@"bombs_only_image"];
-		
+
 		WBCBoard *board = [self boardFromColoredImage:croppedImage imageWithoutBombs:imageWithoutBombs bombsOnlyImage:bombsOnlyImage];
 		
 		if (completion) {
