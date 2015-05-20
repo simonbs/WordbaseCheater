@@ -8,8 +8,8 @@
 
 #import "WBCBoardCreator.h"
 #import <GPUImage/GPUImage.h>
-#import <TesseractOCR/TesseractOCR.h>
-#import <TesseractOCR/Tesseract.h>
+#import <TesseractOCRiOS/TesseractOCR.h>
+#import <TesseractOCRiOS/Tesseract.h>
 #import "WBCBoard.h"
 #import "WBCTile.h"
 #import "WBCIndexPath.h"

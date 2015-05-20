@@ -337,7 +337,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WBC;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = SimonBS;
 				TargetAttributes = {
 					72728C5D1A1514A80061EA3C = {
@@ -547,10 +547,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58AED6FF44D31E1306D1E0BB /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$SRCROOT/WordbaseCheater/Source/WordbaseCheater-Prefix.pch";
 				INFOPLIST_FILE = WordbaseCheater/Info.plist;
@@ -592,10 +592,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 52E04B0C60FF5601C13B04E4 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$SRCROOT/WordbaseCheater/Source/WordbaseCheater-Prefix.pch";
 				INFOPLIST_FILE = WordbaseCheater/Info.plist;
